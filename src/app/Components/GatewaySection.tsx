@@ -64,7 +64,7 @@ const GatewaySection = () => {
           </motion.div>
 
           <motion.a
-            href="https://play.google.com/store/search?q=stockology&c=apps"
+            href="https://play.google.com/store/apps/details?id=com.saral_info.moneymakerapi.stockology&hl=en-US"
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.03 }}

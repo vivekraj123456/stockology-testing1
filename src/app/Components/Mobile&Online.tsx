@@ -22,13 +22,13 @@ const MobileOnline = () => {
         <div className="absolute top-[40%] -left-[10%] w-[400px] h-[400px] rounded-full bg-emerald-500/10 blur-[100px]" />
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-10">
+        <div className="grid grid-cols-1 items-center gap-12 xl:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] xl:gap-16">
 
           {/* Left Content */}
-          <div className="space-y-8">
-            <div className="space-y-4">
-              <h2 className="text-green-600 font-semibold tracking-wide uppercase text-sm">
+          <div className="mx-auto w-full max-w-4xl space-y-8 xl:max-w-none">
+            <div className="space-y-4 text-center xl:text-left">
+              <h2 className="text-sm font-semibold uppercase tracking-wide text-green-600">
                 Mobile & Online Platform
               </h2>
               <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white tracking-tight leading-tight">
@@ -37,13 +37,13 @@ const MobileOnline = () => {
                   Anytime, Anywhere.
                 </span>
               </h1>
-              <p className="text-lg text-gray-600 dark:text-gray-400 max-w-xl leading-relaxed">
+              <p className="mx-auto max-w-2xl text-lg leading-relaxed text-gray-600 dark:text-gray-400 xl:mx-0 xl:max-w-xl">
                 Experience the future of trading with our lightning-fast mobile app. Real-time data, advanced charting, and secure execution at your fingertips.
               </p>
             </div>
 
             {/* Features Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div className="mx-auto grid max-w-4xl grid-cols-1 gap-6 sm:grid-cols-2 xl:mx-0">
               {[
                 { icon: Zap, title: "Lightning Fast", desc: "Instant order execution" },
                 { icon: ShieldCheck, title: "Secure & Safe", desc: "Biometric authentication" },
@@ -63,7 +63,7 @@ const MobileOnline = () => {
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-wrap gap-4 pt-4">
+            <div className="flex flex-wrap justify-center gap-4 pt-4 xl:justify-start">
               <Link href="#">
                 <button className="flex items-center space-x-3 bg-gray-900 hover:bg-gray-800 text-white px-6 py-3 rounded-xl transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl">
                   <Smartphone className="w-6 h-6" />
@@ -73,7 +73,7 @@ const MobileOnline = () => {
                   </div>
                 </button>
               </Link>
-              <Link href="https://play.google.com/store/search?q=stockology&c=apps&hl=en_IN ">
+              <Link href="https://play.google.com/store/apps/details?id=com.saral_info.moneymakerapi.stockology&hl=en-US">
                 <button className="flex items-center space-x-3 bg-gray-900 hover:bg-gray-800 text-white px-6 py-3 rounded-xl transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl">
                   <Download className="w-6 h-6" />
                   <div className="text-left">
@@ -86,7 +86,7 @@ const MobileOnline = () => {
           </div>
 
           {/* Right Content - 3D Phone Mockup */}
-          <div className="relative flex justify-center items-center">
+          <div className="relative flex items-center justify-center">
             <CardContainer className="inter-var">
               <CardBody className="bg-gray-50 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto rounded-xl p-6 border">
                 <CardItem

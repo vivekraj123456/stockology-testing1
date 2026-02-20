@@ -286,7 +286,7 @@ export default function App() {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="flex flex-col sm:flex-row justify-center items-center gap-6"
             >
-              <Button name={"Google Play"} href={""} image={"/google.svg"} />
+              <Button name={"Google Play"} href={"https://play.google.com/store/apps/details?id=com.saral_info.moneymakerapi.stockology&hl=en-US"} image={"/google.svg"} />
               <Button name={"Apple Store"} href={""} image={"/app.png"} />
             </motion.div>
           </div>

@@ -102,6 +102,7 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
         <meta name="theme-color" content="#16a34a" />
         <link rel="canonical" href="https://stockology.in" />
+        <base target="_blank" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased pt-20 min-h-screen flex flex-col`}
