@@ -1,11 +1,5 @@
 export const navData = [
   {
-    id: 1,
-    label: "Home",
-    href: "/",
-    type: "link",
-  },
-  {
     id: 2,
     label: "About Us",
     href: "/About",
@@ -45,6 +39,12 @@ export const navData = [
     id: 6,
     label: "Contact Us",
     href: "/Contact",
+    type: "link",
+  },
+  {
+    id: "blogs",
+    label: "Blogs",
+    href: "/Blogs",
     type: "link",
   },
   {

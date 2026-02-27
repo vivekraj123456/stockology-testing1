@@ -20,16 +20,16 @@ const FeatureBadge = ({ icon: Icon, text, className, delay = 0 }: { icon: any, t
       opacity: { delay, duration: 0.6 },
       y: { repeat: Infinity, duration: 4 + Math.random(), ease: "easeInOut", delay }
     }}
-    className={`absolute z-20 flex items-center gap-2 md:gap-4 group ${className}`}
+    className={`absolute z-20 flex items-center gap-1.5 md:gap-4 group ${className}`}
   >
-    <div className="relative">
+    <div className="relative shrink-0">
       <div className="absolute inset-0 bg-green-400/20 rounded-full animate-ping opacity-0 group-hover:opacity-100 transition-opacity" />
-      <div className="relative bg-white/95 backdrop-blur-md border border-green-100 p-2 md:p-3 rounded-2xl shadow-xl group-hover:shadow-green-200/50 transition-all duration-300 text-green-600 group-hover:scale-110">
-        <Icon size={18} className="md:w-6 md:h-6" />
+      <div className="relative bg-white/95 backdrop-blur-md border border-green-100 p-2 md:p-3 rounded-full shadow-xl group-hover:shadow-green-200/50 transition-all duration-300 text-green-600 group-hover:scale-110 flex items-center justify-center">
+        <Icon className="w-4 h-4 md:w-6 md:h-6" />
       </div>
     </div>
 
-    <div className="flex flex-col bg-white/90 backdrop-blur-md border border-green-50 px-3 md:px-4 py-1.5 md:py-2 rounded-2xl shadow-sm transform group-hover:translate-x-1 transition-all duration-300 overflow-hidden">
+    <div className="flex flex-col bg-white/90 backdrop-blur-md border border-green-50 px-2.5 md:px-4 py-1.5 md:py-2 rounded-xl md:rounded-2xl shadow-sm transform group-hover:translate-x-1 transition-all duration-300 overflow-hidden">
       <span className="text-[10px] md:text-[13px] font-black text-gray-800 tracking-tight whitespace-nowrap">
         {text}
       </span>
@@ -74,7 +74,7 @@ const Mockup = () => {
   };
 
   return (
-    <div ref={containerRef} className="relative w-full overflow-hidden bg-[#fdfdfd] px-4 pt-12 pb-6 md:pt-20 md:pb-10 lg:pt-[120px] lg:pb-14">
+    <div ref={containerRef} className="relative w-full overflow-hidden bg-[#fdfdfd] px-4 pb-6 md:pb-10 lg:pb-14 pt-6 md:pt-8">
       {/* Premium Background Elements */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-green-100/20 blur-[120px] rounded-full" />
@@ -82,7 +82,7 @@ const Mockup = () => {
         <div className="absolute inset-0 opacity-[0.02]" style={{ backgroundImage: "radial-gradient(#22c55e 0.5px, transparent 0.5px)", backgroundSize: "30px 30px" }} />
       </div>
 
-      <div className="max-w-7xl mx-auto flex flex-col-reverse lg:grid lg:grid-cols-[1.1fr,0.9fr] gap-12 lg:gap-16 items-center relative z-10">
+      <div className="max-w-7xl mx-auto flex flex-col lg:grid lg:grid-cols-[1.1fr,0.9fr] gap-12 lg:gap-16 items-center relative z-10 pt-4 md:pt-0">
 
         {/* Content Side */}
         <motion.div
@@ -91,17 +91,19 @@ const Mockup = () => {
           whileInView="visible"
           viewport={{ once: true }}
           style={{ y: textY }}
-          className="flex flex-col space-y-6 md:space-y-10"
+          className="flex flex-col items-center lg:items-start text-center lg:text-left space-y-6 md:space-y-10"
         >
-          <motion.div variants={itemVariants} className="space-y-4 md:space-y-6">
+          <motion.div variants={itemVariants} className="flex flex-col items-center lg:items-start space-y-4 md:space-y-6">
             <motion.span
               variants={itemVariants}
-              className="inline-block px-4 py-2 bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 text-green-700 text-xs md:text-sm font-bold rounded-full uppercase tracking-widest shadow-lg shadow-green-100/50"
+              className="inline-block w-fit px-4 py-2 bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 text-green-700 text-xs md:text-sm font-bold rounded-full uppercase tracking-widest shadow-lg shadow-green-100/50"
             >
               India's Trusted Broker
             </motion.span>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-[#1F2937] leading-[1.05] lg:leading-[0.95] tracking-tight">
-              Stockology <br />
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-[#1F2937] leading-[1.05] lg:leading-[0.95] tracking-tight flex flex-col items-center lg:items-start lg:block">
+              <span className="flex items-center gap-2 lg:gap-4 md:mb-1">
+                Stockology
+              </span>
               <span className="bg-gradient-to-r from-[#22C55E] via-[#16a34a] to-[#10b981] bg-clip-text text-transparent">
                 Secure Your <br /> Future
               </span>
@@ -128,7 +130,7 @@ const Mockup = () => {
           </motion.div>
 
           {/* Responsive CTA */}
-          <motion.div variants={itemVariants} className="flex flex-col space-y-4 lg:space-y-6">
+          <motion.div variants={itemVariants} className="flex flex-col items-center lg:items-start space-y-4 lg:space-y-6 w-full">
             <a
               href="https://backoffice.stockologysecurities.com/EKYC/EKYCAccountOpening/Get?RefID=704AF1A76EA24DCEBA655434A385F26E"
               target="_blank"
@@ -142,7 +144,7 @@ const Mockup = () => {
               </button>
             </a>
 
-            <p className="text-[11px] md:text-[13px] text-gray-400 font-bold flex items-center gap-1.5 pl-2">
+            <p className="text-[11px] md:text-[13px] text-gray-400 font-bold flex items-center justify-center lg:justify-start gap-1.5 pl-0 lg:pl-2">
               <span className="text-red-500 font-black animate-pulse">*</span>
               By continuing, I accept Stockology{" "}
               <a href="/Terms-&-Conditions" className="text-[#22C55E] hover:text-green-600 transition-colors underline underline-offset-4">
@@ -158,10 +160,10 @@ const Mockup = () => {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           style={{ y: imgY }}
-          className="relative flex justify-center items-center h-[350px] md:h-[500px] lg:h-[600px] w-full"
+          className="relative flex justify-center items-center h-[400px] md:h-[500px] lg:h-[600px] w-full pt-6 md:pt-0"
         >
           {/* Main Visual Containment to prevent Overflow */}
-          <div className="relative w-full h-full flex items-center justify-center max-w-[500px] lg:max-w-none">
+          <div className="relative w-full h-full flex items-center justify-center max-w-[500px] lg:max-w-none pt-4 sm:pt-0">
 
             {/* Background Glow */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-green-200/20 rounded-full blur-[80px] -z-10" />
@@ -170,19 +172,19 @@ const Mockup = () => {
             <FeatureBadge
               icon={TrendingUp}
               text="IPO Investments"
-              className="top-[5%] left-[0%] md:left-[-5%] lg:left-[-15%]"
+              className="top-[5%] left-[5%] md:left-[-5%] lg:left-[-15%] scale-90 sm:scale-100 origin-left"
               delay={0.4}
             />
             <FeatureBadge
               icon={Scale}
               text="Equity Broking"
-              className="bottom-[10%] left-[2%] md:left-[-2%] lg:left-[-10%]"
+              className="bottom-[10%] left-[5%] md:left-[-2%] lg:left-[-10%] scale-90 sm:scale-100 origin-left"
               delay={0.7}
             />
             <FeatureBadge
               icon={Bell}
               text="Smart Alerts"
-              className="top-[40%] right-[0%] md:right-[-5%] lg:right-[-12%]"
+              className="top-[40%] right-[5%] md:right-[-5%] lg:right-[-12%] scale-90 sm:scale-100 origin-right"
               delay={1}
             />
 
@@ -196,14 +198,14 @@ const Mockup = () => {
                 y: { duration: 6, repeat: Infinity, ease: "easeInOut" },
                 rotate: { duration: 9, repeat: Infinity, ease: "easeInOut" }
               }}
-              className="relative z-10 w-[85%] lg:w-full max-w-[580px] drop-shadow-[0_50px_100px_rgba(34,197,94,0.35)]"
+              className="relative z-10 w-[85%] lg:w-full max-w-[580px] drop-shadow-[0_50px_100px_rgba(34,197,94,0.35)] mt-6 md:mt-0"
             >
               <Image
                 src="/homemockup1.png"
                 alt="Stockology Dashboard"
                 width={700}
                 height={700}
-                className="w-full h-auto select-none pointer-events-none rounded-3xl"
+                className="w-full h-auto object-contain select-none pointer-events-none rounded-3xl"
                 priority
               />
             </motion.div>

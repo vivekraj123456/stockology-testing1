@@ -6,7 +6,7 @@ import React, { useState, useEffect, useRef, useCallback } from "react";
 import { navData } from "../navData";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronDown, Search, Loader2 } from "lucide-react";
+import { Menu, X, ChevronDown, Search, Loader2, Headset } from "lucide-react";
 
 type Exchange = "NSE" | "BSE";
 
@@ -204,18 +204,14 @@ const Navbar = () => {
   }, [stockSearchQuery]);
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-[1000] flex justify-center px-4 py-4 pointer-events-none">
+    <div className="fixed top-0 left-0 right-0 z-[1000] flex justify-center w-full pointer-events-none">
       <motion.header
-        initial={{ y: -100, opacity: 0 }}
+        initial={{ y: -10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.5, ease: "easeOut" }}
-        className={`pointer-events-auto relative isolate flex items-center justify-between w-full max-w-7xl px-3 sm:px-5 lg:px-6 transition-all duration-300 rounded-2xl border overflow-visible ring-1 ring-black/5 ${isScrolled
-          ? "h-16 bg-white/96 backdrop-blur-xl shadow-[0_22px_48px_-26px_rgba(15,23,42,0.55)] border-slate-200/80"
-          : "h-20 bg-white/98 backdrop-blur-md shadow-[0_20px_44px_-26px_rgba(15,23,42,0.45)] border-slate-300/80"
+        transition={{ duration: 0.3, ease: "easeOut" }}
+        className={`pointer-events-auto relative flex items-center justify-between w-full px-4 sm:px-6 lg:px-8 transition-all duration-300 border-b border-gray-200 bg-white/95 backdrop-blur-md ${isScrolled ? "h-20 shadow-sm" : "h-24"
           }`}
       >
-        <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-r from-white/90 via-white/95 to-slate-50/90" />
-        <div className="pointer-events-none absolute inset-x-6 bottom-0 h-px bg-gradient-to-r from-transparent via-emerald-300/80 to-transparent" />
 
         <div className="relative z-10 flex items-center gap-2 md:gap-4">
           {/* Mobile Menu Toggle */}
@@ -236,7 +232,7 @@ const Navbar = () => {
               width={180}
               height={64}
               priority
-              className={`w-auto transition-all duration-300 ${isScrolled ? "h-10" : "h-14"}`}
+              className={`w-auto transition-all duration-300 ${isScrolled ? "h-12" : "h-16"}`}
             />
           </Link>
         </div>
@@ -244,76 +240,70 @@ const Navbar = () => {
         <div className="relative z-10 hidden md:flex flex-1 min-w-0 items-center justify-between pl-4 lg:pl-6">
           {/* Desktop Navigation */}
           <nav className="flex items-center gap-0.5 xl:gap-1">
-          {navData.map((item) => (
-            <div
-              key={item.id}
-              className="relative"
-              onMouseEnter={() => item.type === "dropdown" && setShowDropdown(item.id)}
-              onMouseLeave={() => item.type === "dropdown" && setShowDropdown(null)}
-            >
-              <button
-                onClick={() =>
-                  item.type === "dropdown"
-                    ? toggleDropdown(item.id)
-                    : (setShowMobileMenu(false), handleClick(item.href))
-                }
-                className="group relative whitespace-nowrap px-3.5 py-2.5 text-sm font-semibold text-slate-800 hover:text-emerald-700 transition-colors flex items-center gap-1 rounded-lg hover:bg-emerald-50/85"
+            {navData.map((item) => (
+              <div
+                key={item.id}
+                className="relative"
+                onMouseEnter={() => item.type === "dropdown" && setShowDropdown(item.id)}
+                onMouseLeave={() => item.type === "dropdown" && setShowDropdown(null)}
               >
-                {item.label}
-                {item.type === "dropdown" && (
-                  <ChevronDown
-                    size={14}
-                    className={`transition-transform duration-300 ${showDropdown === item.id ? "rotate-180" : ""
-                      }`}
-                  />
-                )}
-                {/* Active Underline Effect */}
-                <motion.div
-                  className="absolute bottom-0 left-4 right-4 h-0.5 bg-green-600 origin-left"
-                  initial={{ scaleX: 0 }}
-                  whileHover={{ scaleX: 1 }}
-                  transition={{ duration: 0.3 }}
-                />
-              </button>
+                <button
+                  onClick={() =>
+                    item.type === "dropdown"
+                      ? toggleDropdown(item.id)
+                      : (setShowMobileMenu(false), handleClick(item.href))
+                  }
+                  className="group relative whitespace-nowrap px-4 py-3 text-[17px] font-bold text-slate-700 hover:text-slate-900 transition-colors flex items-center gap-1.5 rounded-lg"
+                >
+                  {item.label}
+                  {item.type === "dropdown" && (
+                    <ChevronDown
+                      size={18}
+                      strokeWidth={2.5}
+                      className={`transition-transform duration-300 text-slate-500 ${showDropdown === item.id ? "rotate-180" : ""
+                        }`}
+                    />
+                  )}
+                </button>
 
-              {/* Dropdown Menu */}
-              <AnimatePresence>
-                {item.type === "dropdown" && showDropdown === item.id && (
-                  <motion.ul
-                    initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                    transition={{ duration: 0.2 }}
-                    className="absolute left-0 top-[calc(100%+0.55rem)] z-[1200] min-w-[13rem] overflow-hidden rounded-xl border border-slate-300 bg-white py-1.5 shadow-[0_24px_46px_-20px_rgba(15,23,42,0.55)] ring-1 ring-slate-200"
-                  >
-                    {item.subItems?.map((subItem) => (
-                      <li key={subItem.id} className="border-b border-slate-100 last:border-b-0">
-                        <Link
-                          href={subItem.href}
-                          onClick={() => {
-                            setShowDropdown(null);
-                            setShowMobileMenu(false);
-                          }}
-                          className="flex px-4 py-2.5 text-sm font-semibold text-slate-800 transition-colors hover:bg-emerald-50 hover:text-emerald-700"
-                        >
-                          {subItem.label}
-                        </Link>
-                      </li>
-                    ))}
-                  </motion.ul>
-                )}
-              </AnimatePresence>
-            </div>
-          ))}
+                {/* Dropdown Menu */}
+                <AnimatePresence>
+                  {item.type === "dropdown" && showDropdown === item.id && (
+                    <motion.ul
+                      initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                      transition={{ duration: 0.2 }}
+                      className="absolute left-0 top-[calc(100%+0.55rem)] z-[1200] min-w-[13rem] overflow-hidden rounded-xl border border-slate-300 bg-white py-1.5 shadow-[0_24px_46px_-20px_rgba(15,23,42,0.55)] ring-1 ring-slate-200"
+                    >
+                      {item.subItems?.map((subItem) => (
+                        <li key={subItem.id} className="border-b border-slate-100 last:border-b-0">
+                          <Link
+                            href={subItem.href}
+                            onClick={() => {
+                              setShowDropdown(null);
+                              setShowMobileMenu(false);
+                            }}
+                            className="flex px-4 py-2.5 text-sm font-semibold text-slate-800 transition-colors hover:bg-emerald-50 hover:text-emerald-700"
+                          >
+                            {subItem.label}
+                          </Link>
+                        </li>
+                      ))}
+                    </motion.ul>
+                  )}
+                </AnimatePresence>
+              </div>
+            ))}
           </nav>
 
-          <div className="flex items-center gap-2 lg:gap-3 min-w-0">
-            <div className="hidden xl:block relative w-[220px] 2xl:w-[260px] shrink-0" ref={stockSearchContainerRef}>
+          <div className="flex items-center gap-4 lg:gap-5 min-w-0">
+            <div className="hidden xl:block relative w-[280px] 2xl:w-[320px] shrink-0" ref={stockSearchContainerRef}>
               <label htmlFor="navbar-stock-search" className="sr-only">
                 Search Stock or Company
               </label>
               <div className="relative">
-                <Search className="w-4 h-4 text-gray-500 absolute left-3 top-1/2 -translate-y-1/2" />
+                <Search className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" />
                 <input
                   id="navbar-stock-search"
                   type="text"
@@ -323,11 +313,11 @@ const Navbar = () => {
                     setStockSearchOpen(true);
                   }}
                   onFocus={() => setStockSearchOpen(true)}
-                  placeholder="search by name"
-                  className="w-full border border-slate-300 rounded-lg pl-10 pr-10 py-2 text-sm text-gray-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none bg-white/95"
+                  placeholder="Search for stock"
+                  className="w-full border-2 border-slate-200 rounded-full pl-12 pr-10 py-2.5 text-[16px] font-medium text-slate-700 placeholder:text-slate-400 focus:border-slate-300 focus:ring-0 outline-none bg-transparent hover:bg-slate-50 transition-colors"
                 />
                 {stockSearching && (
-                  <Loader2 className="w-4 h-4 animate-spin text-blue-600 absolute right-3 top-1/2 -translate-y-1/2" />
+                  <Loader2 className="w-5 h-5 animate-spin text-slate-400 absolute right-4 top-1/2 -translate-y-1/2" />
                 )}
               </div>
 
@@ -361,9 +351,8 @@ const Navbar = () => {
                                   {formatPrice(stock.price, stock.currency)}
                                 </p>
                                 <p
-                                  className={`text-xs font-semibold ${
-                                    stock.changePercent >= 0 ? "text-green-600" : "text-red-600"
-                                  }`}
+                                  className={`text-xs font-semibold ${stock.changePercent >= 0 ? "text-green-600" : "text-red-600"
+                                    }`}
                                 >
                                   {stock.changePercent >= 0 ? "+" : ""}
                                   {stock.changePercent.toFixed(2)}%
@@ -388,14 +377,11 @@ const Navbar = () => {
             {/* CTA Button */}
             <div className="hidden xl:block shrink-0">
               <a href="https://backoffice.stockologysecurities.com/EKYC/EKYCAccountOpening/Get?RefID=704AF1A76EA24DCEBA655434A385F26E">
-                <motion.button
-                  whileHover={{ scale: 1.08, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="relative bg-gradient-to-r from-green-600 to-green-500 hover:from-green-700 hover:to-green-600 text-white px-7 py-2.5 rounded-xl font-bold transition-all shadow-xl shadow-green-600/30 hover:shadow-2xl hover:shadow-green-600/40 border border-green-500/50"
+                <button
+                  className="px-6 py-2.5 rounded-full border-2 border-[#10b981] bg-[#10b981] text-[16px] text-white font-bold hover:bg-[#059669] hover:border-[#059669] hover:shadow-[0_0_15px_rgba(16,185,129,0.7)] transition-all duration-300"
                 >
-                  <span className="relative z-10 flex items-center gap-2">Open Demat Account</span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-green-500/20 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity" />
-                </motion.button>
+                  Open Demat Account
+                </button>
               </a>
             </div>
           </div>
@@ -423,7 +409,7 @@ const Navbar = () => {
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
               className="fixed left-0 top-0 bottom-0 w-[280px] bg-white shadow-2xl z-[1001] flex flex-col p-6 border-r border-gray-100 pointer-events-auto"
             >
-              <div className="flex items-center justify-between mb-8">
+              <div className="flex items-center justify-between mb-6 shrink-0">
                 <Image src="/stklogo.png" alt="Logo" width={100} height={50} className="object-contain" />
                 <button
                   onClick={() => setShowMobileMenu(false)}
@@ -433,7 +419,7 @@ const Navbar = () => {
                 </button>
               </div>
 
-              <div className="space-y-2">
+              <div className="flex-1 overflow-y-auto space-y-2 pr-2 pb-4">
                 {navData.map((item) => (
                   <div key={item.id} className="flex flex-col">
                     <button
@@ -474,8 +460,8 @@ const Navbar = () => {
                 ))}
               </div>
 
-              <div className="mt-auto pt-8">
-                <button className="w-full bg-green-600 text-white py-3 rounded-xl font-bold shadow-lg">
+              <div className="shrink-0 pt-4 pb-2 mt-auto">
+                <button className="w-full bg-[#10b981] text-white py-3.5 rounded-xl font-bold shadow-md hover:bg-[#059669] transition-colors">
                   Open Demat Account
                 </button>
               </div>

@@ -268,57 +268,169 @@ export default function FundTransfer() {
                   </div>
                 </div>
 
-                {/* QR Code */}
-                <div className="bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl p-4 border-2 border-dashed border-gray-300">
-                  <div className="bg-white rounded-lg p-4 shadow-lg">
-                    <div className="aspect-square bg-gradient-to-br from-green-100 to-emerald-100 rounded-lg flex items-center justify-center mb-3">
-                      <div className="text-center">
-                        <svg className="w-24 h-24 mx-auto text-green-400" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M3 11h8V3H3v8zm2-6h4v4H5V5zm-2 8h8v8H3v-8zm2 2v4h4v-4H5zm8-12v8h8V3h-8zm2 2h4v4h-4V5zm4 8h-2v2h2v-2zm-2 2h-2v2h2v-2zm2 0h2v2h-2v-2zm0 4h2v2h-2v-2zm-4-4h2v4h-2v-4zm4-4h2v2h-2v-2z" />
-                        </svg>
-                        <p className="text-gray-500 font-medium text-xs mt-1">QR Code</p>
+                {/* Account Number Generation Instructions */}
+                <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-5 border-2 border-dashed border-gray-300">
+                  <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                    <div className="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-green-600">
+                      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                    </div>
+                    Account Generation Rules
+                  </h3>
+
+                  <div className="space-y-4">
+                    <p className="text-gray-700 text-sm font-medium">
+                      Your personalized Bank account number for fund transfers is automatically generated using a fixed format:
+                    </p>
+
+                    <div className="bg-white rounded-lg p-4 shadow-sm border border-gray-100 flex items-center justify-center">
+                      <div className="flex gap-2 text-lg md:text-xl items-center font-mono">
+                        <span className="font-bold text-green-600 py-1 px-3 bg-green-50 rounded-md border border-green-200">STKL14</span>
+                        <span className="text-gray-400 font-bold">+</span>
+                        <span className="font-bold text-gray-700 py-1 px-3 bg-gray-50 rounded-md border border-gray-200">&lt;Client Code&gt;</span>
                       </div>
                     </div>
-                    <p className="text-center text-xs text-gray-600 font-semibold">
-                      STOCKOLOGY SECURITIES PRIVATE LIMITED
-                    </p>
-                    <p className="text-center text-xs text-gray-500 mt-1">
-                      Scan to pay via UPI
-                    </p>
+
+                    <ul className="space-y-2 text-sm text-gray-600 mt-4">
+                      <li className="flex items-start gap-2">
+                        <span className="text-green-500 mt-0.5">•</span>
+                        <span>Prefix is always <strong className="text-gray-900">STKL14</strong></span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-green-500 mt-0.5">•</span>
+                        <span>Suffix is your unique <strong className="text-gray-900">Trading / Client Code</strong></span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-green-500 mt-0.5">•</span>
+                        <span>Example: If your client code is <strong>3214</strong>, your account number will be <strong className="text-green-600 font-mono">STKL143214</strong></span>
+                      </li>
+                    </ul>
                   </div>
                 </div>
 
-                {/* <motion.button
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="mt-4 w-full bg-gradient-to-r from-green-600 to-emerald-600 text-white py-2.5 rounded-lg font-bold shadow-lg hover:shadow-xl transition-all flex items-center justify-center space-x-2 text-sm"
-                >
-                  <span>Open UPI App</span>
-                  <ArrowRight className="w-4 h-4" />
-                </motion.button> */}
+                {/* Common Beneficiary Details */}
+                <div className="mt-8 bg-white border border-gray-100 rounded-2xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(16,185,129,0.08)] transition-all duration-300 transform relative overflow-hidden group">
+                  <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-green-400 to-emerald-600 opacity-80 group-hover:w-1.5 transition-all duration-300"></div>
+
+                  <h4 className="text-gray-900 font-extrabold flex items-center gap-2.5 mb-6 text-lg tracking-tight pl-2">
+                    <div className="p-1.5 bg-green-50 rounded-lg">
+                      <svg className="w-5 h-5 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                      </svg>
+                    </div>
+                    Common Details for Transfer
+                  </h4>
+
+                  <div className="space-y-4 pl-2">
+                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center pb-4 border-b border-gray-50/80 gap-2">
+                      <span className="text-gray-500 font-medium text-sm flex items-center gap-2">
+                        <span className="w-1.5 h-1.5 rounded-full bg-gray-300"></span>
+                        Beneficiary Name
+                      </span>
+                      <div className="flex items-center space-x-3 sm:justify-end">
+                        <span className="text-gray-900 font-bold text-[15px] max-w-[200px] md:max-w-none break-words">Stockology Securities Pvt Ltd USCNB A/C</span>
+                        <button
+                          onClick={() => {
+                            navigator.clipboard.writeText("Stockology Securities Pvt Ltd USCNB A/C");
+                            setCopiedAccount("Stockology Securities Pvt Ltd USCNB A/C-beneficiary");
+                            setTimeout(() => setCopiedAccount(null), 2000);
+                          }}
+                          className="p-2 bg-gray-50 hover:bg-green-50 border border-gray-100 hover:border-green-200 rounded-lg transition-all shrink-0 hover:scale-105 active:scale-95 text-gray-400 hover:text-green-600 group/btn"
+                          title="Copy Beneficiary Name"
+                        >
+                          {copiedAccount === "Stockology Securities Pvt Ltd USCNB A/C-beneficiary" ? (
+                            <Check className="w-4 h-4 text-green-600" />
+                          ) : (
+                            <Copy className="w-4 h-4 group-hover/btn:text-green-600" />
+                          )}
+                        </button>
+                      </div>
+                    </div>
+
+                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start pb-4 border-b border-gray-50/80 gap-2">
+                      <span className="text-gray-500 font-medium text-sm flex items-center gap-2 mt-1.5">
+                        <span className="w-1.5 h-1.5 rounded-full bg-gray-300"></span>
+                        IFSC Code
+                      </span>
+                      <div className="flex flex-col sm:items-end">
+                        <div className="flex items-center space-x-3">
+                          <span className="text-gray-900 font-black tracking-widest text-[15px]">HDFC0005384</span>
+                          <button
+                            onClick={() => {
+                              navigator.clipboard.writeText("HDFC0005384");
+                              setCopiedAccount("HDFC0005384-ifsc-common");
+                              setTimeout(() => setCopiedAccount(null), 2000);
+                            }}
+                            className="p-2 bg-gray-50 hover:bg-green-50 border border-gray-100 hover:border-green-200 rounded-lg transition-all shrink-0 hover:scale-105 active:scale-95 text-gray-400 hover:text-green-600 group/btn"
+                            title="Copy IFSC code"
+                          >
+                            {copiedAccount === "HDFC0005384-ifsc-common" ? (
+                              <Check className="w-4 h-4 text-green-600" />
+                            ) : (
+                              <Copy className="w-4 h-4 group-hover/btn:text-green-600" />
+                            )}
+                          </button>
+                        </div>
+                        <div className="flex items-center gap-1.5 mt-1 sm:mt-1.5 text-xs text-amber-600 bg-amber-50 px-2.5 py-1 rounded-md font-medium border border-amber-100/50">
+                          <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                          fifth character is Zero
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 pt-1">
+                      <span className="text-gray-500 font-medium text-sm flex items-center gap-2">
+                        <span className="w-1.5 h-1.5 rounded-full bg-gray-300"></span>
+                        MICR Code
+                      </span>
+                      <div className="flex items-center space-x-3 sm:justify-end">
+                        <span className="text-gray-900 font-black tracking-widest text-[15px]">452240046</span>
+                        <button
+                          onClick={() => {
+                            navigator.clipboard.writeText("452240046");
+                            setCopiedAccount("452240046-micr-common");
+                            setTimeout(() => setCopiedAccount(null), 2000);
+                          }}
+                          className="p-2 bg-gray-50 hover:bg-green-50 border border-gray-100 hover:border-green-200 rounded-lg transition-all shrink-0 hover:scale-105 active:scale-95 text-gray-400 hover:text-green-600 group/btn"
+                          title="Copy MICR Code"
+                        >
+                          {copiedAccount === "452240046-micr-common" ? (
+                            <Check className="w-4 h-4 text-green-600" />
+                          ) : (
+                            <Copy className="w-4 h-4 group-hover/btn:text-green-600" />
+                          )}
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
               </div>
             </motion.div>
           </div>
         </div>
 
         <section className="mt-8 overflow-hidden rounded-[2rem] border border-white/10 bg-[linear-gradient(135deg,#12181a,#1b2326)] text-white shadow-[0_30px_80px_-40px_rgba(0,0,0,0.9)]">
-          <div className="grid grid-cols-1 gap-8 p-6 lg:grid-cols-[1.2fr_0.8fr] lg:p-10">
-            <div>
-              <h2 className="max-w-xl text-3xl font-bold leading-tight sm:text-4xl">
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 p-6 lg:p-10 w-full items-center">
+            <div className="w-full lg:w-[60%] flex flex-col justify-center">
+              <h2 className="max-w-xl text-3xl font-bold leading-tight sm:text-4xl text-center lg:text-left">
                 Open a <span className="text-yellow-400">Free</span> Demat Account in{" "}
                 <span className="text-yellow-400">5 Mins.</span>
               </h2>
 
-              <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2">
+              <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 max-w-lg mx-auto lg:mx-0">
                 {[
                   "Free AMC for First Year",
                   "Free Research",
                   "Low DP Charges (₹10)",
                   "No Auto Square Off Charges",
                 ].map((item) => (
-                  <div key={item} className="flex items-start gap-3">
-                    <div className="mt-1 h-8 w-8 rounded-full border border-emerald-300/80 bg-emerald-400/10" />
-                    <p className="text-lg font-semibold text-white/95">{item}</p>
+                  <div key={item} className="flex items-center gap-3 justify-start sm:mx-auto lg:mx-0 w-[240px] md:w-auto">
+                    <div className="h-8 w-8 rounded-full border border-emerald-300/80 bg-emerald-400/10 flex-shrink-0" />
+                    <p className="text-lg font-semibold text-white/95 text-left truncate">{item}</p>
                   </div>
                 ))}
               </div>
@@ -326,7 +438,7 @@ export default function FundTransfer() {
 
             <form
               onSubmit={handleLeadSubmit}
-              className="rounded-2xl bg-black/20 p-4 backdrop-blur-sm sm:p-5"
+              className="w-full lg:w-[40%] rounded-2xl bg-black/20 p-5 sm:p-6 md:p-8 backdrop-blur-sm border border-white/5"
             >
               <label htmlFor="fund-transfer-lead-mobile" className="sr-only">
                 Mobile Number
@@ -550,6 +662,7 @@ export default function FundTransfer() {
                     <strong>Note:</strong> Please ensure you transfer funds only from your registered bank account with your demat account. Transfers from unregistered accounts not accepted.
                   </p>
                 </div>
+
               </div>
             </motion.div>
           </motion.div>

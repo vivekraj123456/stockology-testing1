@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { OrbitingCircles } from "@/components/ui/orbiting-circles";
@@ -8,6 +8,26 @@ import { OrbitingCircles } from "@/components/ui/orbiting-circles";
 const featureItems = ["Real-time Data", "Advanced Chart", "Smart Tools"];
 
 const GatewaySection = () => {
+  const [radius, setRadius] = useState<number>(210);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 480) {
+        setRadius(Math.floor(window.innerWidth / 2 - 25)); // Keeps it proportional to small phones
+      } else if (window.innerWidth < 640) {
+        setRadius(160);
+      } else if (window.innerWidth < 768) {
+        setRadius(180);
+      } else {
+        setRadius(210);
+      }
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <section className="relative isolate w-full overflow-hidden bg-gradient-to-br from-green-700 via-emerald-600 to-green-700 py-16 md:py-20">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.18),transparent_45%),radial-gradient(circle_at_bottom_right,rgba(255,255,255,0.14),transparent_45%)]" />
@@ -110,10 +130,10 @@ const GatewaySection = () => {
             </motion.div>
 
             <OrbitingCircles
-              radius={210}
+              radius={radius}
               duration={24}
               path
-              iconSize={88}
+              iconSize={radius < 180 ? 64 : 88}
               className="z-30"
             >
               {["/element_1.png", "/element_2.png", "/element_3.png", "/element_4.png"].map(

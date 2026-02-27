@@ -1,6 +1,7 @@
 const serviceLinks = [
   { name: "Mobile & online trading platform", path: "/App" },
   { name: "Calculator", path: "/Calculator" },
+  // { name: "Option Chain", path: "/option-chain" },
 ];
 
 const quickLinks = [
