@@ -185,7 +185,7 @@ export default function PopupModal() {
       {isOpen && (
         <div className="fixed inset-0 z-[9999] flex items-start justify-center overflow-y-auto bg-black/50 p-3 backdrop-blur-sm sm:items-center sm:p-6">
           <div
-            className="relative mx-auto w-full max-w-5xl max-h-[calc(100dvh-1.5rem)] sm:max-h-[90vh]"
+            className="relative mx-auto w-full max-w-4xl max-h-[calc(100dvh-1.5rem)] sm:max-h-[88vh]"
             style={{ perspective: '1200px' }}
           >
             <div className="overflow-hidden rounded-2xl bg-white shadow-2xl transition-transform duration-300 sm:rounded-3xl" style={{ transformStyle: 'preserve-3d' }}>
@@ -198,20 +198,20 @@ export default function PopupModal() {
               </button>
               <div className="grid h-full grid-cols-1 gap-0 lg:grid-cols-5">
                 {/* Right side - Image (takes 2 cols, integrated with form) */}
-                <div className="hidden lg:flex lg:col-span-2 items-end justify-center bg-gradient-to-br from-white via-blue-50 to-white p-0 relative order-2">
+                <div className="relative order-2 hidden items-end justify-center bg-gradient-to-br from-white via-blue-50 to-white p-0 lg:col-span-2 lg:flex">
                   <div className="relative z-10 w-full" style={{ filter: 'drop-shadow(-10px 10px 25px rgba(0,0,0,0.06))' }}>
                     <Image
                       src="/female-professional.png"
                       alt="Professional"
-                      width={300}
-                      height={420}
+                      width={270}
+                      height={380}
                       className="object-contain w-full h-auto"
                     />
                   </div>
                 </div>
 
                 {/* Left side - Form (takes 3 cols) */}
-                <div className="order-1 relative z-20 bg-white p-4 sm:p-6 lg:col-span-3 lg:p-10">
+                <div className="relative z-20 order-1 bg-white p-4 sm:p-5 lg:col-span-3 lg:p-8">
 
             {showSuccess && (
               <div className="py-6 text-center sm:py-8">
@@ -224,11 +224,11 @@ export default function PopupModal() {
 	            {!showSuccess && (
 	              <>
 	                {/* Header */}
-	                <div className="mb-5 text-center sm:mb-6">
+                <div className="mb-4 text-center sm:mb-5">
                   <p className="text-sm font-semibold text-gray-700 mb-2">OPEN</p>
-                  <h2 className="mb-2 bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-2xl font-bold text-transparent sm:text-3xl">DEMAT ACCOUNT</h2>
+                  <h2 className="mb-2 bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-xl font-bold text-transparent sm:text-2xl">DEMAT ACCOUNT</h2>
                   <p className="text-sm font-semibold text-gray-800">AND START YOUR</p>
-                  <p className="text-2xl font-bold text-green-600 sm:text-3xl">INVESTMENT</p>
+                  <p className="text-xl font-bold text-green-600 sm:text-2xl">INVESTMENT</p>
                   <p className="text-sm font-semibold text-gray-800 mt-1">JOURNEY WITH US</p>
                 </div>
 
@@ -248,13 +248,13 @@ export default function PopupModal() {
 	                      </button>
 	                    </div>
 	                  )}
-	                  <input
+                  <input
 	                    type="text"
 	                    name="name"
                     placeholder="Name"
                     value={formData.name}
                     onChange={handleInputChange}
-                    className="w-full rounded-xl border border-gray-200 px-4 py-2.5 shadow-sm transition-all hover:shadow-md focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:bg-gray-100 sm:py-3"
+                    className="w-full rounded-xl border border-gray-200 px-4 py-2 shadow-sm transition-all hover:shadow-md focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:bg-gray-100 sm:py-2.5"
                   />
 
                   <div className="flex gap-2">
@@ -274,7 +274,7 @@ export default function PopupModal() {
                       minLength={MOBILE_NUMBER_LENGTH}
                       inputMode="numeric"
                       pattern="[0-9]{10}"
-                      className="flex-1 rounded-xl border border-gray-200 px-4 py-2.5 shadow-sm transition-all hover:shadow-md focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500 sm:py-3"
+                      className="flex-1 rounded-xl border border-gray-200 px-4 py-2 shadow-sm transition-all hover:shadow-md focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500 sm:py-2.5"
                     />
                   </div>
 
@@ -284,7 +284,7 @@ export default function PopupModal() {
                     placeholder="Email"
                     value={formData.email}
                     onChange={handleInputChange}
-                    className="w-full rounded-xl border border-gray-200 px-4 py-2.5 shadow-sm transition-all hover:shadow-md focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500 sm:py-3"
+                    className="w-full rounded-xl border border-gray-200 px-4 py-2 shadow-sm transition-all hover:shadow-md focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500 sm:py-2.5"
                   />
 
                   <input
@@ -293,14 +293,14 @@ export default function PopupModal() {
                     placeholder="City"
                     value={formData.city}
                     onChange={handleInputChange}
-                    className="w-full rounded-xl border border-gray-200 px-4 py-2.5 shadow-sm transition-all hover:shadow-md focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500 sm:py-3"
+                    className="w-full rounded-xl border border-gray-200 px-4 py-2 shadow-sm transition-all hover:shadow-md focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500 sm:py-2.5"
                   />
 
                   <div className="flex flex-col gap-3 sm:flex-row">
                     <button
                       type="submit"
                       disabled={isLoading}
-                      className="flex-1 rounded-xl bg-gradient-to-r from-blue-600 to-blue-700 px-4 py-3 font-bold text-white shadow-lg transition-all hover:from-blue-700 hover:to-blue-800 hover:shadow-xl disabled:cursor-not-allowed disabled:bg-blue-300"
+                      className="flex-1 rounded-xl bg-gradient-to-r from-blue-600 to-blue-700 px-4 py-2.5 font-bold text-white shadow-lg transition-all hover:from-blue-700 hover:to-blue-800 hover:shadow-xl disabled:cursor-not-allowed disabled:bg-blue-300"
                     >
                       {isLoading ? 'Submitting...' : 'SUBMIT'}
                     </button>
@@ -309,7 +309,7 @@ export default function PopupModal() {
                       href="https://backoffice.stockologysecurities.com/EKYC/EKYCAccountOpening/Get?RefID=704AF1A76EA24DCEBA655434A385F26E"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 rounded-xl bg-gradient-to-r from-green-600 to-green-700 px-4 py-3 text-center font-bold text-white shadow-lg transition-all hover:from-green-700 hover:to-green-800 hover:shadow-xl"
+                      className="flex-1 rounded-xl bg-gradient-to-r from-green-600 to-green-700 px-4 py-2.5 text-center font-bold text-white shadow-lg transition-all hover:from-green-700 hover:to-green-800 hover:shadow-xl"
                     >
                       OPEN AN ACCOUNT
                     </a>

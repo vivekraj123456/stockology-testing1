@@ -4,6 +4,8 @@ import BlogCard from "@/components/blog/BlogCard";
 import BlogPagination from "@/components/blog/BlogPagination";
 import { getBlogPageSize, getBlogsPage } from "@/lib/crm/blogs";
 
+export const dynamic = "force-dynamic";
+
 type BlogListingPageProps = {
   searchParams?: {
     page?: string | string[];

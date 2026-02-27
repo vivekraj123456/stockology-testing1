@@ -10,6 +10,7 @@ export interface BlogPost {
   seoTitle: string | null;
   seoDescription: string | null;
   seoImage: string | null;
+  author?: string | null;
 }
 
 export interface BlogPagination {

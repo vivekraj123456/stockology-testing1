@@ -6,13 +6,22 @@ export default withAuth(
     return NextResponse.next();
   },
   {
+    pages: {
+      signIn: '/admin/login',
+    },
     callbacks: {
-      authorized: ({ token }) => !!token,
+      authorized: ({ req, token }) => {
+        if (req.nextUrl.pathname === '/admin/login') {
+          return true;
+        }
+
+        return !!token;
+      },
     },
   }
 );
 
 // Protect admin routes
 export const config = {
-  matcher: ['/admin/dashboard/:path*', '/admin/blogs/:path*'],
+  matcher: ['/admin/:path*'],
 };

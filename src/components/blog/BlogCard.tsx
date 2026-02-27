@@ -42,6 +42,11 @@ export default function BlogCard({ post }: BlogCardProps) {
           <h2 className="mt-3 line-clamp-2 text-xl font-bold text-slate-900">
             {post.title}
           </h2>
+          {post.author ? (
+            <p className="mt-2 text-xs font-medium uppercase tracking-[0.12em] text-slate-500">
+              By {post.author}
+            </p>
+          ) : null}
           <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-slate-600">
             {post.excerpt}
           </p>

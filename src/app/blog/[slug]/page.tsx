@@ -3,7 +3,10 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 
 import BlogCard from "@/components/blog/BlogCard";
+import { sanitizeBlogHtml } from "@/lib/blogs/sanitize";
 import { FALLBACK_BLOG_IMAGE, getBlogBySlug, getRelatedBlogs } from "@/lib/crm/blogs";
+
+export const dynamic = "force-dynamic";
 
 type BlogDetailPageProps = {
   params: {
@@ -49,7 +52,9 @@ export async function generateMetadata({
   }
 
   const title = post.seoTitle || post.title;
-  const description = post.seoDescription || post.excerpt || stripHtml(post.content).slice(0, 160);
+  const sanitizedContent = sanitizeBlogHtml(post.content);
+  const description =
+    post.seoDescription || post.excerpt || stripHtml(sanitizedContent).slice(0, 160);
   const image = post.seoImage || post.featuredImage || FALLBACK_BLOG_IMAGE;
   const url = `https://stockology.in/blog/${post.slug}`;
 
@@ -85,6 +90,7 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
   }
 
   const renderHtml = isHtmlContent(post.content);
+  const sanitizedContent = renderHtml ? sanitizeBlogHtml(post.content) : post.content;
   const relatedPosts = await getRelatedBlogs(post.slug, 3);
 
   return (
@@ -92,6 +98,7 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
       <div className="mx-auto max-w-4xl px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
         <p className="text-xs font-semibold uppercase tracking-[0.16em] text-emerald-700">
           {formatBlogDate(post.publishedAt)}
+          {post.author ? ` | ${post.author}` : ""}
         </p>
         <h1 className="mt-3 text-3xl font-extrabold leading-tight text-slate-900 sm:text-4xl">
           {post.title}
@@ -112,8 +119,7 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
 
         <div className="mt-8 text-base leading-8 text-slate-700 [&_a]:font-medium [&_a]:text-emerald-700 [&_a]:underline [&_a]:underline-offset-2 [&_h2]:mt-10 [&_h2]:text-2xl [&_h2]:font-bold [&_h2]:leading-tight [&_h2]:text-slate-900 [&_h3]:mt-8 [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:text-slate-900 [&_li]:mb-2 [&_ol]:mb-6 [&_ol]:list-decimal [&_ol]:pl-6 [&_p]:mb-6 [&_strong]:font-semibold [&_ul]:mb-6 [&_ul]:list-disc [&_ul]:pl-6">
           {renderHtml ? (
-            // Content is provided by a trusted internal CRM source.
-            <div dangerouslySetInnerHTML={{ __html: post.content }} />
+            <div dangerouslySetInnerHTML={{ __html: sanitizedContent }} />
           ) : (
             <div className="whitespace-pre-line">{post.content}</div>
           )}

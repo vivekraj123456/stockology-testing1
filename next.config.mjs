@@ -29,6 +29,29 @@ const crmImagePatterns = Array.from(
     ).values()
 );
 
+const blogImageHostPatterns = Array.from(
+    new Map(
+        (process.env.BLOG_IMAGE_HOSTS || "")
+            .split(",")
+            .map((value) => toRemotePattern(value.trim()))
+            .filter(Boolean)
+            .map((pattern) => [`${pattern.protocol}:${pattern.hostname}`, pattern])
+    ).values()
+);
+
+const contentSecurityPolicy = [
+    "default-src 'self'",
+    "base-uri 'self'",
+    "frame-ancestors 'none'",
+    "form-action 'self'",
+    "script-src 'self' 'unsafe-inline' 'unsafe-eval' https:",
+    "style-src 'self' 'unsafe-inline' https:",
+    "img-src 'self' data: blob: https:",
+    "font-src 'self' data: https:",
+    "connect-src 'self' https:",
+    "object-src 'none'",
+].join("; ");
+
 const nextConfig = {
     transpilePackages: [
         "framer-motion",
@@ -44,6 +67,7 @@ const nextConfig = {
                 hostname: 'via.placeholder.com',
                 pathname: '/**',
             },
+            ...blogImageHostPatterns,
             ...crmImagePatterns,
         ],
         formats: ['image/webp', 'image/avif'],
@@ -93,6 +117,18 @@ const nextConfig = {
                 {
                     key: 'Referrer-Policy',
                     value: 'strict-origin-when-cross-origin',
+                },
+                {
+                    key: 'Content-Security-Policy',
+                    value: contentSecurityPolicy,
+                },
+                {
+                    key: 'Permissions-Policy',
+                    value: 'camera=(), microphone=(), geolocation=()',
+                },
+                {
+                    key: 'Strict-Transport-Security',
+                    value: 'max-age=63072000; includeSubDomains; preload',
                 },
             ],
         },
