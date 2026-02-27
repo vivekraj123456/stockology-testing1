@@ -44,7 +44,7 @@ export const navData = [
   {
     id: "blogs",
     label: "Blogs",
-    href: "/Blogs",
+    href: "/blog",
     type: "link",
   },
   {

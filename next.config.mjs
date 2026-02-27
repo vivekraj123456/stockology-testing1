@@ -1,4 +1,34 @@
 /** @type {import('next').NextConfig} */
+const toRemotePattern = (input) => {
+    if (!input) {
+        return null;
+    }
+
+    try {
+        const normalized = input.includes("://") ? input : `https://${input}`;
+        const parsed = new URL(normalized);
+        return {
+            protocol: parsed.protocol.replace(":", ""),
+            hostname: parsed.hostname,
+            pathname: "/**",
+        };
+    } catch {
+        return null;
+    }
+};
+
+const crmImagePatterns = Array.from(
+    new Map(
+        [
+            toRemotePattern(process.env.CRM_BLOG_API_BASE_URL),
+            toRemotePattern(process.env.CRM_BLOG_IMAGE_BASE_URL),
+            toRemotePattern(process.env.CRM_BLOG_IMAGE_HOST),
+        ]
+            .filter(Boolean)
+            .map((pattern) => [`${pattern.protocol}:${pattern.hostname}`, pattern])
+    ).values()
+);
+
 const nextConfig = {
     transpilePackages: [
         "framer-motion",
@@ -14,6 +44,7 @@ const nextConfig = {
                 hostname: 'via.placeholder.com',
                 pathname: '/**',
             },
+            ...crmImagePatterns,
         ],
         formats: ['image/webp', 'image/avif'],
         minimumCacheTTL: 60,
@@ -31,6 +62,18 @@ const nextConfig = {
         optimizePackageImports: ['react-icons', 'lucide-react', '@mui/icons-material', 'framer-motion'],
         largePageDataBytes: 128 * 1000,
     },
+    redirects: async () => [
+        {
+            source: '/Blogs',
+            destination: '/blog',
+            permanent: true,
+        },
+        {
+            source: '/blogs',
+            destination: '/blog',
+            permanent: true,
+        },
+    ],
     headers: async () => [
         {
             source: '/(.*)',

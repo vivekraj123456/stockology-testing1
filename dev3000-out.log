@@ -1,0 +1,41 @@
+
+> stockology@0.1.0 dev
+> next dev --turbo
+
+  ▲ Next.js 14.2.23 (turbo)
+  - Local:        http://localhost:3000
+  - Environments: .env
+  - Experiments (use with caution):
+    · optimizeCss
+
+ ✓ Starting...
+ ✓ Compiled in 304ms
+ ✓ Ready in 2.3s
+ ○ Compiling /blog ...
+ ✓ Compiled /blog in 5.9s
+ GET /blog 200 in 6750ms
+ GET /blog 200 in 263ms
+ GET /blog 200 in 1524ms
+ ○ Compiling /blog/[slug] ...
+ ✓ Compiled /blog/[slug] in 1524ms
+ GET /blog/market-open-checklist-for-busy-traders 200 in 3340ms
+ ○ Compiling /_not-found/page ...
+ ✓ Compiled /_not-found/page in 620ms
+ ✓ Compiled in 1212ms
+ GET /api/auth/session 404 in 1326ms
+ GET /api/auth/session 404 in 241ms
+ GET /api/auth/session 404 in 248ms
+ ✓ Compiled /blog in 304ms
+ POST /api/auth/_log 404 in 621ms
+ POST /api/auth/_log 404 in 523ms
+ POST /api/auth/_log 404 in 522ms
+ ✓ Compiled in 27ms
+ ✓ Compiled /blog in 186ms
+ GET /blog 200 in 323ms
+ ✓ Compiled /blog/[slug] in 176ms
+ GET /blog/market-open-checklist-for-busy-traders 200 in 520ms
+ GET /blog/market-open-checklist-for-busy-traders 200 in 283ms
+ GET /api/auth/session 404 in 393ms
+ GET /api/auth/session 404 in 713ms
+ POST /api/auth/_log 404 in 748ms
+ POST /api/auth/_log 404 in 370ms

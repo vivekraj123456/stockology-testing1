@@ -5,6 +5,7 @@ const serviceLinks = [
 ];
 
 const quickLinks = [
+  { name: "Blog", path: "/blog" },
   { name: "Fund Transfer", path: "/Fund-Transfer" },
   { name: "Privacy Policy", path: "/Privacy-Policy" },
   { name: "Terms & Conditions", path: "/Terms-&-Conditions" },
@@ -16,6 +17,7 @@ const quickLinks = [
 ];
 
 const resourceLinks = [
+  { name: "Blog", path: "/blog" },
   { name: "Downloads Center", path: "/downloads" },
   { name: "SEBI Account Opening", path: "/downloads/sebi-account-opening" },
   { name: "RMS Policy", path: "/downloads/rms-policy" },
@@ -24,6 +26,7 @@ const resourceLinks = [
 ];
 
 const primaryQuickLinks = [
+  { name: "Blog", path: "/blog" },
   { name: "Fund Transfer", path: "/Fund-Transfer" },
   { name: "Privacy Policy", path: "/Privacy-Policy" },
   { name: "Terms & Conditions", path: "/Terms-&-Conditions" },

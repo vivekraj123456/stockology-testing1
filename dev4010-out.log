@@ -1,0 +1,20 @@
+
+> stockology@0.1.0 dev
+> next dev --turbo -p 4010
+
+  ▲ Next.js 14.2.23 (turbo)
+  - Local:        http://localhost:4010
+  - Environments: .env
+  - Experiments (use with caution):
+    · optimizeCss
+
+ ✓ Starting...
+ ✓ Compiled in 293ms
+ ✓ Ready in 2.2s
+ ○ Compiling /blog ...
+ ✓ Compiled /blog in 5.7s
+ GET /blog 200 in 6623ms
+ ○ Compiling /blog/[slug] ...
+ ✓ Compiled /blog/[slug] in 677ms
+ GET /blog/market-open-checklist-for-busy-traders 200 in 1829ms
+ ✓ Compiled in 174ms
