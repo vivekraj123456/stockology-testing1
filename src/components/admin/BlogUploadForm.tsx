@@ -302,16 +302,39 @@ export default function BlogUploadForm({
       onSubmit={handleSubmit}
       className="overflow-hidden rounded-[30px] border border-slate-200/80 bg-white/90 shadow-[0_16px_42px_rgba(15,23,42,0.08)] backdrop-blur"
     >
-      <div className="border-b border-slate-200 bg-gradient-to-r from-slate-900 via-slate-800 to-emerald-800 px-6 py-5 text-white sm:px-8">
-        <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-emerald-200">
-          {isEditMode ? "Update Existing Post" : "Create New Post"}
-        </p>
-        <h3 className="mt-2 text-xl font-black tracking-tight sm:text-2xl">
-          {isEditMode ? "Edit Blog Content" : "Publish Blog Content"}
-        </h3>
-        <p className="mt-2 text-sm text-slate-200">
-          Write the post details and publish directly to the public website.
-        </p>
+      <div className="border-b border-slate-200 bg-gradient-to-r from-slate-900 via-slate-800 to-emerald-800 px-6 py-5 text-white sm:px-8 relative">
+        <div className="flex w-full items-start justify-between">
+          <div>
+            <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-emerald-200">
+              {isEditMode ? "Update Existing Post" : "Create New Post"}
+            </p>
+            <h3 className="mt-2 text-xl font-black tracking-tight sm:text-2xl">
+              {isEditMode ? "Edit Blog Content" : "Publish Blog Content"}
+            </h3>
+            <p className="max-w-[85%] mt-2 text-sm text-slate-200">
+              Write the post details and publish directly to the public website.
+            </p>
+          </div>
+          {isEditMode ? (
+            <button
+              type="button"
+              onClick={onCancel}
+              className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white/20 text-white transition hover:bg-white/40"
+              aria-label="Close modal"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={2.5}
+                stroke="currentColor"
+                className="h-5 w-5"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          ) : null}
+        </div>
       </div>
 
       <div className="space-y-6 px-6 py-6 sm:px-8 sm:py-7">

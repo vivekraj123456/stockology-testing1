@@ -20,3 +20,278 @@
  ○ Compiling /admin/login ...
  ✓ Compiled /admin/login in 1800ms (1811 modules)
  GET /admin/login 200 in 2418ms
+ ✓ Compiled in 2.9s (788 modules)
+ ✓ Compiled in 902ms (788 modules)
+ ✓ Compiled in 793ms (788 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\Users\bk878\Desktop\stockology-testing-main\.next\cache\webpack\client-development\0.pack.gz_' -> 'C:\Users\bk878\Desktop\stockology-testing-main\.next\cache\webpack\client-development\0.pack.gz'
+ ✓ Compiled in 8.3s (788 modules)
+ ✓ Compiled in 1075ms (788 modules)
+ ✓ Compiled in 233.8s (788 modules)
+ ✓ Compiled in 4.2s (788 modules)
+ ✓ Compiled in 22.3s (788 modules)
+ ○ Compiling / ...
+ ✓ Compiled / in 50.8s (1685 modules)
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 4.2s (1674 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, lstat 'C:\Users\bk878\Desktop\stockology-testing-main\.next\server\app\admin\login\page.js'
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving '../../../../.next/server/app/admin/login/page' in C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\server for build dependencies doesn't lead to expected result 'C:\Users\bk878\Desktop\stockology-testing-main\.next\server\app\admin\login\page.js', but to 'Error: Can't resolve '../../../../.next/server/app/admin/login/page' in 'C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ../../../../.next/server/app/admin/login/page (expected C:\Users\bk878\Desktop\stockology-testing-main\.next\server\app\admin\login\page.js)
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\server\require.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\server\require.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\server\load-components.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\server\load-components.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\utils.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\utils.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\webpack\loaders\next-app-loader.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\webpack\loaders\next-app-loader.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\compiled\loader-runner\LoaderRunner.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\compiled\loader-runner\LoaderRunner.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\compiled\webpack\bundle5.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\compiled\webpack\bundle5.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\compiled\webpack\webpack.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\compiled\webpack\webpack.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\webpack\plugins\define-env-plugin.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\webpack\plugins\define-env-plugin.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\swc\index.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\swc\index.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\webpack\loaders\next-barrel-loader.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\webpack\loaders\next-barrel-loader.js
+<w>  at resolve commonjs C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\webpack\loaders\next-barrel-loader.js
+ ○ Compiling /admin/login ...
+ ✓ Compiled /admin/login in 1411ms (1037 modules)
+ GET /admin/login 200 in 4253ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 7.7s (1862 modules)
+ GET /_next/static/chunks/app/admin/login/page.js 404 in 10286ms
+ GET /admin/login 200 in 383ms
+ GET /_next/static/chunks/app/admin/login/page.js 404 in 169ms
+ GET /admin/login? 200 in 85ms
+ GET /_next/static/chunks/app/admin/login/page.js 404 in 54ms
+ GET /admin/login? 200 in 72ms
+ GET /_next/static/chunks/app/admin/login/page.js 404 in 57ms
+ GET /admin/login? 200 in 75ms
+ GET /_next/static/chunks/app/admin/login/page.js 404 in 50ms
+ GET /admin/login? 200 in 66ms
+ GET /_next/static/chunks/app/admin/login/page.js 404 in 58ms
+ GET /admin/login 200 in 80ms
+ GET /_next/static/chunks/app/admin/login/page.js 404 in 60ms
+ ○ Compiling /_error ...
+ ✓ Compiled /_error in 10.7s (2089 modules)
+Time 6.1087
+ GET /admin/login 404 in 12721ms
+ GET /admin/login 200 in 1077ms
+ GET /_next/static/css/app/layout.css?v=1772270798760 404 in 161ms
+ GET /_next/static/chunks/app-pages-internals.js 404 in 222ms
+ GET /_next/static/chunks/app/layout.js 404 in 228ms
+ GET /_next/static/chunks/main-app.js?v=1772270798760 404 in 227ms
+ GET /_next/static/chunks/app/admin/login/page.js 404 in 68ms
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, lstat 'C:\Users\bk878\Desktop\stockology-testing-main\.next\server\vendor-chunks\cookie.js'
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving './vendor-chunks/cookie' in C:\Users\bk878\Desktop\stockology-testing-main\.next\server for build dependencies doesn't lead to expected result 'C:\Users\bk878\Desktop\stockology-testing-main\.next\server\vendor-chunks\cookie.js', but to 'Error: Can't resolve './vendor-chunks/cookie' in 'C:\Users\bk878\Desktop\stockology-testing-main\.next\server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ./vendor-chunks/cookie (expected C:\Users\bk878\Desktop\stockology-testing-main\.next\server\vendor-chunks\cookie.js)
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\.next\server\webpack-runtime.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\.next\server\webpack-runtime.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\.next\server\app\_not-found\page.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\.next\server\app\_not-found\page.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\server\require.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\server\require.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\server\load-components.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\server\load-components.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\utils.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\utils.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\compiled\loader-runner\LoaderRunner.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\compiled\loader-runner\LoaderRunner.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\compiled\webpack\bundle5.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\compiled\webpack\bundle5.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\compiled\webpack\webpack.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\compiled\webpack\webpack.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\webpack\plugins\define-env-plugin.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\webpack\plugins\define-env-plugin.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\swc\index.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\swc\index.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\webpack\loaders\next-barrel-loader.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\webpack\loaders\next-barrel-loader.js
+<w>  at resolve commonjs C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\webpack\loaders\next-barrel-loader.js
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving './vendor-chunks/oidc-token-hash' in C:\Users\bk878\Desktop\stockology-testing-main\.next\server for build dependencies doesn't lead to expected result 'C:\Users\bk878\Desktop\stockology-testing-main\.next\server\vendor-chunks\oidc-token-hash.js', but to 'Error: Can't resolve './vendor-chunks/oidc-token-hash' in 'C:\Users\bk878\Desktop\stockology-testing-main\.next\server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ./vendor-chunks/oidc-token-hash (expected C:\Users\bk878\Desktop\stockology-testing-main\.next\server\vendor-chunks\oidc-token-hash.js)
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\.next\server\webpack-runtime.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\.next\server\webpack-runtime.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\.next\server\app\_not-found\page.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\.next\server\app\_not-found\page.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\server\require.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\server\require.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\server\load-components.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\server\load-components.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\utils.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\utils.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\compiled\loader-runner\LoaderRunner.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\compiled\loader-runner\LoaderRunner.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\compiled\webpack\bundle5.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\compiled\webpack\bundle5.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\compiled\webpack\webpack.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\compiled\webpack\webpack.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\webpack\plugins\define-env-plugin.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\webpack\plugins\define-env-plugin.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\swc\index.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\swc\index.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\webpack\loaders\next-barrel-loader.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\webpack\loaders\next-barrel-loader.js
+<w>  at resolve commonjs C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\webpack\loaders\next-barrel-loader.js
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving './vendor-chunks/preact' in C:\Users\bk878\Desktop\stockology-testing-main\.next\server for build dependencies doesn't lead to expected result 'C:\Users\bk878\Desktop\stockology-testing-main\.next\server\vendor-chunks\preact.js', but to 'Error: Can't resolve './vendor-chunks/preact' in 'C:\Users\bk878\Desktop\stockology-testing-main\.next\server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ./vendor-chunks/preact (expected C:\Users\bk878\Desktop\stockology-testing-main\.next\server\vendor-chunks\preact.js)
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\.next\server\webpack-runtime.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\.next\server\webpack-runtime.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\.next\server\app\_not-found\page.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\.next\server\app\_not-found\page.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\server\require.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\server\require.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\server\load-components.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\server\load-components.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\utils.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\utils.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\compiled\loader-runner\LoaderRunner.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\compiled\loader-runner\LoaderRunner.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\compiled\webpack\bundle5.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\compiled\webpack\bundle5.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\compiled\webpack\webpack.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\compiled\webpack\webpack.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\webpack\plugins\define-env-plugin.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\webpack\plugins\define-env-plugin.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\swc\index.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\swc\index.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\webpack\loaders\next-barrel-loader.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\webpack\loaders\next-barrel-loader.js
+<w>  at resolve commonjs C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\webpack\loaders\next-barrel-loader.js
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving './vendor-chunks/preact-render-to-string' in C:\Users\bk878\Desktop\stockology-testing-main\.next\server for build dependencies doesn't lead to expected result 'C:\Users\bk878\Desktop\stockology-testing-main\.next\server\vendor-chunks\preact-render-to-string.js', but to 'Error: Can't resolve './vendor-chunks/preact-render-to-string' in 'C:\Users\bk878\Desktop\stockology-testing-main\.next\server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ./vendor-chunks/preact-render-to-string (expected C:\Users\bk878\Desktop\stockology-testing-main\.next\server\vendor-chunks\preact-render-to-string.js)
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\.next\server\webpack-runtime.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\.next\server\webpack-runtime.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\.next\server\app\_not-found\page.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\.next\server\app\_not-found\page.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\server\require.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\server\require.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\server\load-components.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\server\load-components.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\utils.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\utils.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\compiled\loader-runner\LoaderRunner.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\compiled\loader-runner\LoaderRunner.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\compiled\webpack\bundle5.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\compiled\webpack\bundle5.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\compiled\webpack\webpack.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\compiled\webpack\webpack.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\webpack\plugins\define-env-plugin.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\webpack\plugins\define-env-plugin.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\swc\index.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\swc\index.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\webpack\loaders\next-barrel-loader.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\webpack\loaders\next-barrel-loader.js
+<w>  at resolve commonjs C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\webpack\loaders\next-barrel-loader.js
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving './vendor-chunks/@panva' in C:\Users\bk878\Desktop\stockology-testing-main\.next\server for build dependencies doesn't lead to expected result 'C:\Users\bk878\Desktop\stockology-testing-main\.next\server\vendor-chunks\@panva.js', but to 'Error: Can't resolve './vendor-chunks/@panva' in 'C:\Users\bk878\Desktop\stockology-testing-main\.next\server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ./vendor-chunks/@panva (expected C:\Users\bk878\Desktop\stockology-testing-main\.next\server\vendor-chunks\@panva.js)
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\.next\server\webpack-runtime.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\.next\server\webpack-runtime.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\.next\server\app\_not-found\page.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\.next\server\app\_not-found\page.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\server\require.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\server\require.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\server\load-components.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\server\load-components.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\utils.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\utils.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\compiled\loader-runner\LoaderRunner.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\compiled\loader-runner\LoaderRunner.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\compiled\webpack\bundle5.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\compiled\webpack\bundle5.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\compiled\webpack\webpack.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\compiled\webpack\webpack.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\webpack\plugins\define-env-plugin.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\webpack\plugins\define-env-plugin.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\swc\index.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\swc\index.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\webpack\loaders\next-barrel-loader.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\webpack\loaders\next-barrel-loader.js
+<w>  at resolve commonjs C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\webpack\loaders\next-barrel-loader.js
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, lstat 'C:\Users\bk878\Desktop\stockology-testing-main\.next\server\vendor-chunks\cookie.js'
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving './vendor-chunks/cookie' in C:\Users\bk878\Desktop\stockology-testing-main\.next\server for build dependencies doesn't lead to expected result 'C:\Users\bk878\Desktop\stockology-testing-main\.next\server\vendor-chunks\cookie.js', but to 'Error: Can't resolve './vendor-chunks/cookie' in 'C:\Users\bk878\Desktop\stockology-testing-main\.next\server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ./vendor-chunks/cookie (expected C:\Users\bk878\Desktop\stockology-testing-main\.next\server\vendor-chunks\cookie.js)
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\.next\server\webpack-runtime.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\.next\server\webpack-runtime.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\.next\server\app\_not-found\page.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\.next\server\app\_not-found\page.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\server\require.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\server\require.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\server\load-components.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\server\load-components.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\utils.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\utils.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at resolve commonjs C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving './vendor-chunks/oidc-token-hash' in C:\Users\bk878\Desktop\stockology-testing-main\.next\server for build dependencies doesn't lead to expected result 'C:\Users\bk878\Desktop\stockology-testing-main\.next\server\vendor-chunks\oidc-token-hash.js', but to 'Error: Can't resolve './vendor-chunks/oidc-token-hash' in 'C:\Users\bk878\Desktop\stockology-testing-main\.next\server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ./vendor-chunks/oidc-token-hash (expected C:\Users\bk878\Desktop\stockology-testing-main\.next\server\vendor-chunks\oidc-token-hash.js)
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\.next\server\webpack-runtime.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\.next\server\webpack-runtime.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\.next\server\app\_not-found\page.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\.next\server\app\_not-found\page.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\server\require.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\server\require.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\server\load-components.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\server\load-components.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\utils.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\utils.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at resolve commonjs C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving './vendor-chunks/preact' in C:\Users\bk878\Desktop\stockology-testing-main\.next\server for build dependencies doesn't lead to expected result 'C:\Users\bk878\Desktop\stockology-testing-main\.next\server\vendor-chunks\preact.js', but to 'Error: Can't resolve './vendor-chunks/preact' in 'C:\Users\bk878\Desktop\stockology-testing-main\.next\server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ./vendor-chunks/preact (expected C:\Users\bk878\Desktop\stockology-testing-main\.next\server\vendor-chunks\preact.js)
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\.next\server\webpack-runtime.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\.next\server\webpack-runtime.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\.next\server\app\_not-found\page.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\.next\server\app\_not-found\page.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\server\require.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\server\require.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\server\load-components.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\server\load-components.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\utils.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\utils.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at resolve commonjs C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving './vendor-chunks/preact-render-to-string' in C:\Users\bk878\Desktop\stockology-testing-main\.next\server for build dependencies doesn't lead to expected result 'C:\Users\bk878\Desktop\stockology-testing-main\.next\server\vendor-chunks\preact-render-to-string.js', but to 'Error: Can't resolve './vendor-chunks/preact-render-to-string' in 'C:\Users\bk878\Desktop\stockology-testing-main\.next\server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ./vendor-chunks/preact-render-to-string (expected C:\Users\bk878\Desktop\stockology-testing-main\.next\server\vendor-chunks\preact-render-to-string.js)
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\.next\server\webpack-runtime.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\.next\server\webpack-runtime.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\.next\server\app\_not-found\page.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\.next\server\app\_not-found\page.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\server\require.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\server\require.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\server\load-components.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\server\load-components.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\utils.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\utils.js
+<w>  at file dependencies C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at resolve commonjs C:\Users\bk878\Desktop\stockology-testing-main\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+ ✓ Compiled in 23.7s (1022 modules)
+ ✓ Compiled in 1897ms (1022 modules)
+ ✓ Compiled in 11.7s (1022 modules)
+ ✓ Compiled in 2.7s (1022 modules)
+ ✓ Compiled in 2.2s (1022 modules)
+ ✓ Compiled in 3.9s (1022 modules)
+ ✓ Compiled in 15.2s (1022 modules)
+ ✓ Compiled in 2s (1022 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\Users\bk878\Desktop\stockology-testing-main\.next\cache\webpack\client-development\2.pack.gz_' -> 'C:\Users\bk878\Desktop\stockology-testing-main\.next\cache\webpack\client-development\2.pack.gz'
+ ✓ Compiled in 3.6s (1022 modules)
+ ✓ Compiled in 12.4s (1022 modules)
+ ✓ Compiled in 5.9s (1022 modules)
+ ✓ Compiled in 1497ms (1022 modules)

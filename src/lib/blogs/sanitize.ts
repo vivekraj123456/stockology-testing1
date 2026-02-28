@@ -45,7 +45,17 @@ const BLOG_ALLOWED_ATTRIBUTES = {
 
 const BLOG_ALLOWED_STYLES = {
   "*": {
-    "font-size": [/^(12|14|16|18|20|24|28|32)px$/],
+    "font-size": [/.*/],
+    "font-family": [/.*/],
+    "color": [/.*/],
+    "background-color": [/.*/],
+    "text-align": [/^left$/, /^right$/, /^center$/, /^justify$/],
+    "font-weight": [/.*/],
+    "font-style": [/.*/],
+    "text-decoration": [/.*/],
+    "line-height": [/.*/],
+    "margin": [/.*/],
+    "padding": [/.*/],
   },
 };
 

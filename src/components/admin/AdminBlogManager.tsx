@@ -62,6 +62,41 @@ export default function AdminBlogManager({ adminEmail }: AdminBlogManagerProps) 
   const [editingPost, setEditingPost] = useState<BlogApiEntity | null>(null);
   const [deletingPostId, setDeletingPostId] = useState<string | null>(null);
   const [isRefreshing, setIsRefreshing] = useState(false);
+  const [toastMessage, setToastMessage] = useState<{ title: string; desc: string } | null>(null);
+
+  useEffect(() => {
+    if (toastMessage) {
+      const timer = setTimeout(() => {
+        setToastMessage(null);
+      }, 4000);
+      return () => clearTimeout(timer);
+    }
+  }, [toastMessage]);
+
+  useEffect(() => {
+    if (!editingPost) {
+      document.body.style.overflow = "";
+      return;
+    }
+
+    const styleElement = document.createElement("style");
+    styleElement.id = "admin-modal-hide-nav";
+    styleElement.innerHTML = `
+      header, nav, .fixed.top-0 {
+        display: none !important;
+      }
+    `;
+    document.head.appendChild(styleElement);
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = "";
+      const existingStyle = document.getElementById("admin-modal-hide-nav");
+      if (existingStyle) {
+        existingStyle.remove();
+      }
+    };
+  }, [editingPost]);
 
   const fetchPosts = useCallback(async () => {
     setListError("");
@@ -97,13 +132,21 @@ export default function AdminBlogManager({ adminEmail }: AdminBlogManagerProps) 
 
   function handleCreateSuccess(blog: BlogApiEntity) {
     setPosts((prev) => sortPostsByDate([blog, ...prev.filter((post) => post.id !== blog.id)]));
+    setToastMessage({
+      title: "Successfully Published",
+      desc: "Your new blog post is now live and visible to the public."
+    });
   }
 
   function handleUpdateSuccess(blog: BlogApiEntity) {
     setPosts((prev) =>
       sortPostsByDate(prev.map((post) => (post.id === blog.id ? blog : post)))
     );
-    setEditingPost(blog);
+    setToastMessage({
+      title: "Changes Saved",
+      desc: "Your edits have been securely saved and are now live."
+    });
+    setEditingPost(null); // Close the modal on save
   }
 
   async function handleDelete(post: BlogApiEntity) {
@@ -172,17 +215,16 @@ export default function AdminBlogManager({ adminEmail }: AdminBlogManagerProps) 
           </div>
 
           {editingPost ? (
-            <div>
-              <h3 className="mb-4 text-lg font-black uppercase tracking-[0.13em] text-slate-800">
-                Edit Post: {editingPost.title}
-              </h3>
-              <BlogUploadForm
-                mode="edit"
-                blogId={editingPost.id}
-                initialValues={toFormState(editingPost)}
-                onSuccess={handleUpdateSuccess}
-                onCancel={() => setEditingPost(null)}
-              />
+            <div className="fixed inset-0 z-[9999] flex items-center justify-center overflow-y-auto bg-slate-900/60 p-4 backdrop-blur-sm sm:p-6">
+              <div className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-[30px] bg-white shadow-2xl">
+                <BlogUploadForm
+                  mode="edit"
+                  blogId={editingPost.id}
+                  initialValues={toFormState(editingPost)}
+                  onSuccess={handleUpdateSuccess}
+                  onCancel={() => setEditingPost(null)}
+                />
+              </div>
             </div>
           ) : null}
         </section>
@@ -275,6 +317,36 @@ export default function AdminBlogManager({ adminEmail }: AdminBlogManagerProps) 
           )}
         </section>
       </div>
+
+      {toastMessage && (
+        <div className="fixed bottom-6 right-6 z-[99999] flex max-w-sm items-start gap-4 rounded-2xl border border-emerald-200 bg-white p-4 shadow-2xl ring-1 ring-black/5 animate-in slide-in-from-bottom-5 fade-in duration-300">
+          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-emerald-600">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={2.5}
+              stroke="currentColor"
+              className="h-6 w-6"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+            </svg>
+          </div>
+          <div className="flex-1 pt-0.5">
+            <p className="text-sm font-bold text-slate-900">{toastMessage.title}</p>
+            <p className="mt-1 text-xs text-slate-500">{toastMessage.desc}</p>
+          </div>
+          <button
+            onClick={() => setToastMessage(null)}
+            className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md text-slate-400 hover:bg-slate-100 hover:text-slate-600 transition"
+            aria-label="Close message"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="h-4 w-4">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      )}
     </div>
   );
 }
