@@ -3,6 +3,8 @@ import sanitizeHtml from "sanitize-html";
 const BLOG_ALLOWED_TAGS = [
   "p",
   "br",
+  "b",
+  "i",
   "strong",
   "em",
   "u",
@@ -35,13 +37,23 @@ const BLOG_ALLOWED_TAGS = [
 const BLOG_ALLOWED_ATTRIBUTES = {
   a: ["href", "name", "target", "rel"],
   img: ["src", "alt", "title", "width", "height", "loading"],
+  span: ["class", "style"],
+  p: ["class", "style"],
+  div: ["class", "style"],
   "*": ["class"],
+};
+
+const BLOG_ALLOWED_STYLES = {
+  "*": {
+    "font-size": [/^(12|14|16|18|20|24|28|32)px$/],
+  },
 };
 
 export function sanitizeBlogHtml(input: string): string {
   return sanitizeHtml(input, {
     allowedTags: BLOG_ALLOWED_TAGS,
     allowedAttributes: BLOG_ALLOWED_ATTRIBUTES,
+    allowedStyles: BLOG_ALLOWED_STYLES,
     allowedSchemes: ["http", "https", "mailto", "tel"],
     allowedSchemesByTag: {
       img: ["http", "https", "data"],

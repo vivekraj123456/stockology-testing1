@@ -27,6 +27,7 @@ export const MOCK_BLOG_POSTS: BlogPost[] = [
     id: "mock-001",
     slug: "market-open-checklist-for-busy-traders",
     title: "Market Open Checklist for Busy Traders",
+    keywords: ["Market", "Featured"],
     excerpt:
       "A practical morning checklist to scan trend, volume, and risk before placing your first trade.",
     content: `
@@ -56,6 +57,7 @@ export const MOCK_BLOG_POSTS: BlogPost[] = [
     id: "mock-002",
     slug: "how-to-read-candles-with-context",
     title: "How to Read Candles With Context",
+    keywords: ["Best stocks", "Advisory"],
     excerpt:
       "Candles are useful only when combined with trend and structure. Learn the context-first approach.",
     content: `
@@ -79,6 +81,7 @@ export const MOCK_BLOG_POSTS: BlogPost[] = [
     id: "mock-003",
     slug: "position-sizing-made-simple",
     title: "Position Sizing Made Simple",
+    keywords: ["Advisory", "Market"],
     excerpt:
       "Most losses come from oversizing. Use a fixed-risk model to survive and grow in volatile markets.",
     content: `
@@ -102,6 +105,7 @@ export const MOCK_BLOG_POSTS: BlogPost[] = [
     id: "mock-004",
     slug: "swing-trading-setup-for-working-professionals",
     title: "Swing Trading Setup for Working Professionals",
+    keywords: ["Best stocks", "Featured"],
     excerpt:
       "A low-maintenance setup for traders who cannot watch charts all day.",
     content: `
@@ -129,6 +133,7 @@ export const MOCK_BLOG_POSTS: BlogPost[] = [
     id: "mock-005",
     slug: "building-a-weekly-trading-routine",
     title: "Building a Weekly Trading Routine",
+    keywords: ["Advisory", "Business"],
     excerpt:
       "Use this Sunday-to-Friday routine to improve preparation, execution, and review quality.",
     content: `
@@ -152,6 +157,7 @@ export const MOCK_BLOG_POSTS: BlogPost[] = [
     id: "mock-006",
     slug: "risk-reward-explained-with-real-examples",
     title: "Risk-Reward Explained With Real Examples",
+    keywords: ["Advisory", "Market"],
     excerpt:
       "Why a strong risk-reward ratio matters more than a high win rate over the long run.",
     content: `
@@ -174,6 +180,7 @@ export const MOCK_BLOG_POSTS: BlogPost[] = [
     id: "mock-007",
     slug: "top-mistakes-new-option-buyers-make",
     title: "Top Mistakes New Option Buyers Make",
+    keywords: ["Ipo", "Market"],
     excerpt:
       "Avoid common beginner errors in options, from chasing premium to ignoring volatility.",
     content: `
@@ -199,6 +206,7 @@ export const MOCK_BLOG_POSTS: BlogPost[] = [
     id: "mock-008",
     slug: "intraday-journal-template-you-can-use",
     title: "Intraday Journal Template You Can Use",
+    keywords: ["Advisory", "News"],
     excerpt:
       "Track entries, exits, and psychology using a compact journal format that improves every week.",
     content: `
@@ -224,6 +232,7 @@ export const MOCK_BLOG_POSTS: BlogPost[] = [
     id: "mock-009",
     slug: "support-and-resistance-that-actually-works",
     title: "Support and Resistance That Actually Works",
+    keywords: ["Best stocks", "Price action"],
     excerpt:
       "Draw fewer levels, focus on reaction zones, and avoid cluttered charts.",
     content: `
@@ -246,6 +255,7 @@ export const MOCK_BLOG_POSTS: BlogPost[] = [
     id: "mock-010",
     slug: "discipline-habits-that-separate-profitable-traders",
     title: "Discipline Habits That Separate Profitable Traders",
+    keywords: ["Advisory", "Featured"],
     excerpt:
       "Process, not prediction, is what keeps profitable traders consistent in uncertain markets.",
     content: `

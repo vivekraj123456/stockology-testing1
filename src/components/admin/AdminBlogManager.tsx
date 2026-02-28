@@ -39,6 +39,7 @@ function formatDate(isoDate: string): string {
 function toFormState(blog: BlogApiEntity): BlogFormState {
   return {
     title: blog.title,
+    keywords: blog.keywords ?? [],
     image: blog.image,
     excerpt: blog.excerpt,
     content: blog.content,
@@ -231,6 +232,18 @@ export default function AdminBlogManager({ adminEmail }: AdminBlogManagerProps) 
                   </p>
                   <p className="mt-2 line-clamp-2 text-sm text-slate-600">{post.excerpt}</p>
                   <p className="mt-2 text-[11px] text-slate-500">Author: {post.author}</p>
+                  {post.keywords && post.keywords.length > 0 ? (
+                    <div className="mt-2 flex flex-wrap gap-1.5">
+                      {post.keywords.map((keyword) => (
+                        <span
+                          key={`${post.id}-${keyword}`}
+                          className="rounded-full border border-slate-300 bg-slate-50 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-slate-600"
+                        >
+                          {keyword}
+                        </span>
+                      ))}
+                    </div>
+                  ) : null}
 
                   <div className="mt-4 flex flex-wrap items-center gap-2">
                     <Link

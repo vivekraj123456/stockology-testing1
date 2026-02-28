@@ -1,0 +1,27 @@
+
+> stockology@0.1.0 dev
+> next dev --turbo
+
+ ⚠ Port 3000 is in use, trying 3001 instead.
+ ⚠ Port 3001 is in use, trying 3002 instead.
+ ⚠ Port 3002 is in use, trying 3003 instead.
+ ⚠ Port 3003 is in use, trying 3004 instead.
+ ⚠ Port 3004 is in use, trying 3005 instead.
+ ⚠ Port 3005 is in use, trying 3006 instead.
+  ▲ Next.js 14.2.35 (turbo)
+  - Local:        http://localhost:3006
+  - Environments: .env
+  - Experiments (use with caution):
+    · optimizeCss
+
+ ✓ Starting...
+Creating turbopack project {
+  dir: 'C:\\Users\\bk878\\Desktop\\stockology-testing-main',
+  testMode: true
+}
+ ✓ Compiled in 328ms
+ ✓ Ready in 2.5s
+ ○ Compiling /admin/login ...
+ ✓ Compiled /admin/login in 5.8s
+ GET /admin/login 200 in 6737ms
+[?25h

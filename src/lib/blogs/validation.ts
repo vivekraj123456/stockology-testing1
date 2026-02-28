@@ -1,8 +1,10 @@
 import { createExcerpt } from "@/lib/blogs/content";
+import { sanitizeAssignableKeywords } from "@/lib/blogs/keywords";
 import { sanitizeBlogHtml, sanitizePlainText } from "@/lib/blogs/sanitize";
 
 export type BlogInputPayload = {
   title?: unknown;
+  keywords?: unknown;
   content?: unknown;
   excerpt?: unknown;
   image?: unknown;
@@ -11,6 +13,7 @@ export type BlogInputPayload = {
 
 export type NormalizedBlogPayload = {
   title: string;
+  keywords: string[];
   content: string;
   excerpt: string;
   image: string;
@@ -22,6 +25,7 @@ const MAX_AUTHOR_LENGTH = 120;
 const MAX_CONTENT_LENGTH = 120_000;
 const MAX_EXCERPT_LENGTH = 500;
 const MAX_IMAGE_LENGTH = 5_000_000;
+const MAX_KEYWORD_COUNT = 8;
 
 function readString(value: unknown): string {
   return typeof value === "string" ? value.trim() : "";
@@ -44,6 +48,7 @@ export function normalizeBlogPayload(
   | { ok: true; data: NormalizedBlogPayload }
   | { ok: false; error: string } {
   const titleInput = readString(payload.title);
+  const keywordsInput = sanitizeAssignableKeywords(payload.keywords);
   const contentInput = readString(payload.content);
   const excerptInput = readString(payload.excerpt);
   const imageInput = readString(payload.image);
@@ -61,7 +66,8 @@ export function normalizeBlogPayload(
     authorInput.length > MAX_AUTHOR_LENGTH ||
     contentInput.length > MAX_CONTENT_LENGTH ||
     excerptInput.length > MAX_EXCERPT_LENGTH ||
-    imageInput.length > MAX_IMAGE_LENGTH
+    imageInput.length > MAX_IMAGE_LENGTH ||
+    keywordsInput.length > MAX_KEYWORD_COUNT
   ) {
     return {
       ok: false,
@@ -95,6 +101,7 @@ export function normalizeBlogPayload(
     ok: true,
     data: {
       title,
+      keywords: keywordsInput,
       content,
       excerpt,
       image: imageInput,

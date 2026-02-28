@@ -3,6 +3,7 @@ import { model, models, Schema, type Model } from "mongoose";
 export interface BlogDocument {
   title: string;
   slug: string;
+  keywords: string[];
   content: string;
   excerpt: string;
   image: string;
@@ -22,6 +23,11 @@ const BlogSchema = new Schema<BlogDocument>(
       required: true,
       unique: true,
       trim: true,
+      index: true,
+    },
+    keywords: {
+      type: [String],
+      default: [],
       index: true,
     },
     content: {
@@ -55,6 +61,7 @@ const BlogSchema = new Schema<BlogDocument>(
 );
 
 BlogSchema.index({ createdAt: -1 });
+BlogSchema.index({ keywords: 1, createdAt: -1 });
 
 const Blog: Model<BlogDocument> =
   (models.Blog as Model<BlogDocument> | undefined) ??

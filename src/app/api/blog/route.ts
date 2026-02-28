@@ -4,6 +4,7 @@ import { NextResponse } from "next/server";
 
 import { authOptions } from "@/lib/auth/options";
 import { slugify } from "@/lib/blogs/content";
+import { isAllKeyword, resolveBlogKeyword } from "@/lib/blogs/keywords";
 import {
   normalizeBlogPayload,
   type BlogInputPayload,
@@ -27,6 +28,7 @@ function toPublicBlog(blog: BlogDocument & { id: string }) {
     id: blog.id,
     title: blog.title,
     slug: blog.slug,
+    keywords: blog.keywords ?? [],
     content: blog.content,
     excerpt: blog.excerpt,
     image: blog.image,
@@ -89,7 +91,7 @@ export async function POST(request: Request) {
     );
   }
 
-  const { title, content, excerpt, image, author } = normalized.data;
+  const { title, keywords, content, excerpt, image, author } = normalized.data;
 
   try {
     await connectToDatabase();
@@ -99,6 +101,7 @@ export async function POST(request: Request) {
     const createdBlog = await Blog.create({
       title,
       slug,
+      keywords,
       content,
       excerpt,
       image,
@@ -158,6 +161,7 @@ export async function GET(request: Request) {
   const page = Number(searchParams.get("page") || "1");
   const limit = Number(searchParams.get("limit") || "10");
   const slug = readString(searchParams.get("slug"));
+  const keyword = resolveBlogKeyword(readString(searchParams.get("keyword")));
   const safePage = Number.isFinite(page) && page > 0 ? Math.floor(page) : 1;
   const safeLimit =
     Number.isFinite(limit) && limit > 0 ? Math.min(Math.floor(limit), 50) : 10;
@@ -185,13 +189,15 @@ export async function GET(request: Request) {
     }
 
     const skip = (safePage - 1) * safeLimit;
+    const query = isAllKeyword(keyword) ? {} : { keywords: keyword };
+
     const [blogs, total] = await Promise.all([
-      Blog.find({})
+      Blog.find(query)
         .sort({ createdAt: -1 })
         .skip(skip)
         .limit(safeLimit)
         .exec(),
-      Blog.countDocuments({}),
+      Blog.countDocuments(query),
     ]);
 
     return NextResponse.json({

@@ -29,6 +29,7 @@ function toPublicBlog(blog: BlogDocument & { id: string }) {
     id: blog.id,
     title: blog.title,
     slug: blog.slug,
+    keywords: blog.keywords ?? [],
     content: blog.content,
     excerpt: blog.excerpt,
     image: blog.image,
@@ -141,7 +142,7 @@ export async function PUT(request: Request, { params }: RouteParams) {
     );
   }
 
-  const { title, content, excerpt, image, author } = normalized.data;
+  const { title, keywords, content, excerpt, image, author } = normalized.data;
 
   try {
     await connectToDatabase();
@@ -162,6 +163,7 @@ export async function PUT(request: Request, { params }: RouteParams) {
 
     existingBlog.title = title;
     existingBlog.slug = nextSlug;
+    existingBlog.keywords = keywords;
     existingBlog.content = content;
     existingBlog.excerpt = excerpt;
     existingBlog.image = image;

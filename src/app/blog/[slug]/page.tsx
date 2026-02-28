@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import BlogCard from "@/components/blog/BlogCard";
@@ -96,23 +97,50 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
   return (
     <article className="bg-gradient-to-b from-slate-50 via-white to-white">
       <div className="mx-auto max-w-4xl px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
-        <p className="text-xs font-semibold uppercase tracking-[0.16em] text-emerald-700">
-          {formatBlogDate(post.publishedAt)}
-          {post.author ? ` | ${post.author}` : ""}
-        </p>
-        <h1 className="mt-3 text-3xl font-extrabold leading-tight text-slate-900 sm:text-4xl">
+        <nav aria-label="Breadcrumb" className="text-sm font-semibold text-blue-700">
+          <ol className="flex flex-wrap items-center gap-2">
+            <li>
+              <Link href="/" className="transition hover:text-blue-900 hover:underline">
+                Home
+              </Link>
+            </li>
+            <li className="text-slate-400">&gt;</li>
+            <li>
+              <Link
+                href="/blog"
+                className="transition hover:text-blue-900 hover:underline"
+              >
+                Blogs
+              </Link>
+            </li>
+            <li className="text-slate-400">&gt;</li>
+            <li className="max-w-full truncate text-blue-700">{post.title}</li>
+          </ol>
+        </nav>
+
+        <h1 className="mt-6 text-3xl font-extrabold leading-tight text-slate-900 sm:text-4xl">
           {post.title}
         </h1>
 
-        <div className="mt-8 overflow-hidden rounded-2xl border border-slate-200 bg-slate-100 shadow-sm">
-          <div className="relative h-[260px] w-full sm:h-[380px] lg:h-[500px]">
+        <p className="mt-5 text-base font-medium text-slate-600">
+          {post.author ? (
+            <>
+              Posted by : <span className="font-semibold text-slate-800">{post.author}</span>
+              {" | "}
+            </>
+          ) : null}
+          {formatBlogDate(post.publishedAt)}
+        </p>
+
+        <div className="mt-8 overflow-hidden rounded-xl border border-slate-200 bg-slate-100 shadow-sm">
+          <div className="relative h-[240px] w-full sm:h-[360px] lg:h-[460px]">
             <Image
               src={post.featuredImage || FALLBACK_BLOG_IMAGE}
               alt={post.title}
               fill
               priority
               sizes="(max-width: 1024px) 100vw, 1024px"
-              className="object-contain p-4"
+              className="object-cover"
             />
           </div>
         </div>

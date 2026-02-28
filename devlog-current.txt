@@ -1,0 +1,22 @@
+
+> stockology@0.1.0 dev
+> next dev
+
+  ▲ Next.js 14.2.35
+  - Local:        http://localhost:3000
+  - Environments: .env
+  - Experiments (use with caution):
+    · optimizeCss
+
+ ✓ Starting...
+ ✓ Ready in 3.2s
+ ○ Compiling /blog ...
+ ✓ Compiled /blog in 10.4s (1613 modules)
+ ✓ Compiled in 2.4s (786 modules)
+ ✓ Compiled in 138ms (772 modules)
+ GET /blog 200 in 19521ms
+ ○ Compiling /src/middleware ...
+ ✓ Compiled /src/middleware in 707ms (174 modules)
+ ○ Compiling /admin/login ...
+ ✓ Compiled /admin/login in 1800ms (1811 modules)
+ GET /admin/login 200 in 2418ms

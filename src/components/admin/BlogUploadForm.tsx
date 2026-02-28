@@ -5,9 +5,12 @@ import type { ChangeEvent, FormEvent } from "react";
 import { useEffect, useMemo, useState } from "react";
 
 import FormField from "@/components/admin/FormField";
+import RichTextEditor from "@/components/admin/RichTextEditor";
+import { BLOG_ASSIGNABLE_KEYWORDS } from "@/lib/blogs/keywords";
 
 export type BlogFormState = {
   title: string;
+  keywords: string[];
   image: string;
   excerpt: string;
   content: string;
@@ -18,6 +21,7 @@ export type BlogApiEntity = {
   id: string;
   title: string;
   slug: string;
+  keywords: string[];
   content: string;
   excerpt: string;
   image: string;
@@ -52,6 +56,7 @@ type StatusState =
 
 const INITIAL_FORM_STATE: BlogFormState = {
   title: "",
+  keywords: [],
   image: "",
   excerpt: "",
   content: "",
@@ -91,6 +96,9 @@ function mergeFormValues(initialValues?: BlogFormState): BlogFormState {
 
   return {
     title: initialValues.title || "",
+    keywords: Array.isArray(initialValues.keywords)
+      ? initialValues.keywords.filter((value): value is string => typeof value === "string")
+      : [],
     image: initialValues.image || "",
     excerpt: initialValues.excerpt || "",
     content: initialValues.content || "",
@@ -150,6 +158,33 @@ export default function BlogUploadForm({
       ...prev,
       [name]: value,
     }));
+
+    if (status.type !== "idle") {
+      setStatus({ type: "idle", message: "" });
+    }
+  };
+
+  const handleContentChange = (value: string) => {
+    setForm((prev) => ({
+      ...prev,
+      content: value,
+    }));
+
+    if (status.type !== "idle") {
+      setStatus({ type: "idle", message: "" });
+    }
+  };
+
+  const handleKeywordToggle = (keyword: string) => {
+    setForm((prev) => {
+      const hasKeyword = prev.keywords.includes(keyword);
+      return {
+        ...prev,
+        keywords: hasKeyword
+          ? prev.keywords.filter((item) => item !== keyword)
+          : [...prev.keywords, keyword],
+      };
+    });
 
     if (status.type !== "idle") {
       setStatus({ type: "idle", message: "" });
@@ -239,6 +274,7 @@ export default function BlogUploadForm({
       if (isEditMode) {
         setForm({
           title: payload.blog.title,
+          keywords: payload.blog.keywords ?? [],
           image: payload.blog.image,
           excerpt: payload.blog.excerpt,
           content: payload.blog.content,
@@ -297,6 +333,34 @@ export default function BlogUploadForm({
             required
             placeholder="Stockology Editorial Team"
           />
+        </div>
+
+        <div className="space-y-3 rounded-2xl border border-slate-200 bg-white p-4">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">
+            Keywords / Category
+          </p>
+          <div className="flex flex-wrap gap-2">
+            {BLOG_ASSIGNABLE_KEYWORDS.map((keyword) => {
+              const isActive = form.keywords.includes(keyword);
+              return (
+                <button
+                  key={keyword}
+                  type="button"
+                  onClick={() => handleKeywordToggle(keyword)}
+                  className={
+                    isActive
+                      ? "rounded-full border border-slate-900 bg-slate-900 px-4 py-2 text-xs font-semibold text-white shadow-sm transition"
+                      : "rounded-full border border-slate-300 bg-white px-4 py-2 text-xs font-semibold text-slate-700 transition hover:border-slate-400 hover:text-slate-900"
+                  }
+                >
+                  {keyword}
+                </button>
+              );
+            })}
+          </div>
+          <p className="text-xs text-slate-500">
+            Selected: {form.keywords.length > 0 ? form.keywords.join(", ") : "None"}
+          </p>
         </div>
 
         <div className="space-y-4 rounded-2xl border border-slate-200 bg-gradient-to-br from-slate-50 to-emerald-50/40 p-5">
@@ -360,14 +424,11 @@ export default function BlogUploadForm({
           placeholder="Write a short summary shown on the listing page..."
         />
 
-        <FormField
+        <RichTextEditor
           label="Full Blog Content"
-          name="content"
           value={form.content}
-          onChange={handleFieldChange}
+          onChange={handleContentChange}
           required
-          as="textarea"
-          rows={14}
           placeholder="Write complete blog content here..."
         />
 

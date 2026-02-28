@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
-import BlogCard from "@/components/blog/BlogCard";
+import BlogListingCard from "@/components/blog/BlogListingCard";
 import BlogPagination from "@/components/blog/BlogPagination";
+import { BLOG_FILTER_KEYWORDS, resolveBlogKeyword } from "@/lib/blogs/keywords";
 import { getBlogPageSize, getBlogsPage } from "@/lib/crm/blogs";
 
 export const dynamic = "force-dynamic";
@@ -9,6 +11,7 @@ export const dynamic = "force-dynamic";
 type BlogListingPageProps = {
   searchParams?: {
     page?: string | string[];
+    keyword?: string | string[];
   };
 };
 
@@ -22,6 +25,20 @@ function getCurrentPage(searchParams: BlogListingPageProps["searchParams"]): num
   }
 
   return Math.floor(parsed);
+}
+
+function getCurrentKeyword(searchParams: BlogListingPageProps["searchParams"]): string {
+  const keywordValue = searchParams?.keyword;
+  const keywordInput = Array.isArray(keywordValue) ? keywordValue[0] : keywordValue;
+  return resolveBlogKeyword(keywordInput || null);
+}
+
+function createKeywordHref(keyword: string): string {
+  if (keyword === "All") {
+    return "/blog";
+  }
+
+  return `/blog?keyword=${encodeURIComponent(keyword)}`;
 }
 
 export const metadata: Metadata = {
@@ -50,36 +67,48 @@ export const metadata: Metadata = {
 
 export default async function BlogListingPage({ searchParams }: BlogListingPageProps) {
   const page = getCurrentPage(searchParams);
+  const keyword = getCurrentKeyword(searchParams);
   const pageSize = getBlogPageSize();
-  const { posts, pagination } = await getBlogsPage({ page, limit: pageSize });
+  const { posts, pagination } = await getBlogsPage({ page, limit: pageSize, keyword });
 
   return (
-    <section className="bg-gradient-to-b from-slate-50 via-white to-slate-50">
-      <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
+    <section className="relative isolate overflow-hidden bg-[linear-gradient(180deg,#f9fafb_0%,#ffffff_48%,#f8fafc_100%)]">
+      <div className="pointer-events-none absolute inset-0 opacity-40 [background-image:linear-gradient(to_right,#e2e8f026_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f026_1px,transparent_1px)] [background-size:24px_24px]" />
+      <div className="relative mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8 lg:py-12">
         <header className="mx-auto max-w-3xl text-center">
-          <p className="inline-flex rounded-full border border-emerald-200 bg-emerald-50 px-4 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-emerald-700">
-            Daily Insights
-          </p>
-          <h1 className="mt-4 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
-            Stockology Blog
+          <h1 className="mt-3 text-3xl font-black tracking-tight text-slate-900 sm:text-4xl">
+            Stockology Blogs
           </h1>
-          <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-slate-600 sm:text-base">
-            Fresh posts from our writing desk. New content appears here automatically.
+          <p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-slate-600 sm:text-base">
+            Fresh posts from our writing desk. Start your market research with our latest blogs and insights.
           </p>
         </header>
 
+        <div className="mt-7 flex gap-2.5 overflow-x-auto pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          {BLOG_FILTER_KEYWORDS.map((tab) => (
+            <Link
+              key={tab}
+              href={createKeywordHref(tab)}
+              className={
+                tab === keyword
+                  ? "inline-flex shrink-0 rounded-full border border-slate-900 bg-slate-900 px-5 py-2 text-sm font-semibold text-white"
+                  : "inline-flex shrink-0 rounded-full border border-slate-300 bg-white px-5 py-2 text-sm font-semibold text-slate-600 transition hover:border-slate-400 hover:text-slate-800"
+              }
+            >
+              {tab}
+            </Link>
+          ))}
+        </div>
+
         {posts.length === 0 ? (
-          <div className="mx-auto mt-10 max-w-2xl rounded-2xl border border-dashed border-slate-300 bg-white p-8 text-center">
+          <div className="mx-auto mt-10 max-w-2xl rounded-3xl border border-dashed border-slate-300 bg-white p-8 text-center shadow-[0_14px_35px_rgba(15,23,42,0.08)]">
             <h2 className="text-xl font-semibold text-slate-900">No blog posts yet</h2>
-            <p className="mt-2 text-sm text-slate-600">
-              Once posts are published in the CRM, they will appear here automatically.
-            </p>
           </div>
         ) : (
           <>
-            <div className="mt-10 grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+            <div className="mx-auto mt-7 grid max-w-[1180px] gap-5 md:grid-cols-2">
               {posts.map((post) => (
-                <BlogCard key={post.id} post={post} />
+                <BlogListingCard key={post.id} post={post} />
               ))}
             </div>
 
@@ -88,6 +117,7 @@ export default async function BlogListingPage({ searchParams }: BlogListingPageP
               totalPages={pagination.totalPages}
               hasPreviousPage={pagination.hasPreviousPage}
               hasNextPage={pagination.hasNextPage}
+              keyword={keyword}
             />
           </>
         )}

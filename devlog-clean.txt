@@ -1,0 +1,48 @@
+
+> stockology@0.1.0 dev
+> next dev --turbo
+
+  ▲ Next.js 14.2.35 (turbo)
+  - Local:        http://localhost:3000
+  - Environments: .env
+  - Experiments (use with caution):
+    · optimizeCss
+
+ ✓ Starting...
+Creating turbopack project {
+  dir: 'C:\\Users\\bk878\\Desktop\\stockology-testing-main',
+  testMode: true
+}
+ ✓ Compiled in 346ms
+ ✓ Ready in 2.6s
+ ○ Compiling /blog/[slug] ...
+ ✓ Compiled /blog/[slug] in 5.6s
+ ○ Compiling /admin/login ...
+ ✓ Compiled /admin/login in 914ms
+ GET /admin/login 200 in 1197ms
+ ○ Compiling /blog ...
+ ✓ Compiled /blog in 734ms
+ GET /blog 200 in 5421ms
+ GET /blog/hhhh 200 in 19794ms
+ ○ Compiling /api/auth/[...nextauth] ...
+ ✓ Compiled in 705ms
+ ✓ Compiled /api/auth/[...nextauth] in 869ms
+ GET /api/auth/session 200 in 2255ms
+ GET /api/auth/session 200 in 288ms
+ GET /api/auth/session 200 in 277ms
+ GET /blog/hhhh 200 in 13441ms
+ GET /api/auth/session 200 in 231ms
+ GET /api/auth/session 200 in 173ms
+ GET /api/auth/session 200 in 194ms
+ GET /api/auth/session 200 in 201ms
+ GET /api/auth/session 200 in 190ms
+ ○ Compiling / ...
+ ✓ Compiled in 1708ms
+ ✓ Compiled / in 1808ms
+ GET / 200 in 2275ms
+ GET /api/auth/session 200 in 538ms
+ ✓ Compiled /api/stocks/live in 416ms
+ GET /api/auth/session 200 in 575ms
+ ✓ Compiled /api/stocks/history in 280ms
+ GET /api/stocks/live 200 in 2467ms
+ GET /api/stocks/history?symbol=%5ENSEI&period=1d&exchange=NSE 200 in 503ms
